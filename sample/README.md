@@ -18,12 +18,12 @@ The backend API utilizes MongoDB both for storing the student/user information a
   - `passport.js` - passport configuration specifying a LocalStrategy
 - `controllers/`
   - `student/` - contains the logic for the student route
-    - `accommodations.js` - either loads a page displaying student accommodation data or processes a POST request to update a student's accommodations.
-    - `addGoals.js` - either loads a form to create a new goal for a student or processes a POST request to submit a new goal.
-    - `addNewStudent.js` - either loads a form to create a new student or processes a POST request to submit a new student.
+    - `accommodations.js` - (1) loads a page displaying student accommodation data or (2) processes a POST request to update a student's accommodations.
+    - `addGoals.js` - (1) loads a form to create a new goal for a student or (2) processes a POST request to submit a new goal.
+    - `addNewStudent.js` - (1) loads a form to create a new student or (2)processes a POST request to submit a new student.
     - `deleteStudent.js` - deletes a student from the database.
-    - `editStudent.js` - either loads a page to edit student information or processes a POST request to update a student's profile on the database.
-    - `searchStudent.js` - either loads a form to retrieve student information or processes a GET request to display a specific student's information.
+    - `editStudent.js` - (1) loads a page to edit student information or (2)processes a POST request to update a student's profile on the database.
+    - `searchStudent.js` - (1) loads a form to retrieve student information or - a GET request to display a specific student's information.
   - `utils/`
     - `accommodations.js` - A list of all accommodations a school district provides, split into four domains (presentation, response, setting, and scheduling)
     - `populateStudentObject.js` - The search and edit features of the app require data to be passed into the API response. This function handles the construction of that data.
