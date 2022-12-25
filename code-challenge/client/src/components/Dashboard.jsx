@@ -1,10 +1,20 @@
 import React from 'react'
-import { useLocation } from 'react-router'
+import { Link, Navigate } from 'react-router-dom'
+import useAuth from './hooks/useAuth'
 
 const Dashboard = () => {
-	const location = useLocation()
-	const email = location.state.email
-	return <div>{email}</div>
+	const user = useAuth('get')
+	if (!user) {
+		return <Navigate to="/" replace="true" />
+	}
+	return (
+		<>
+			<div>{user}</div>
+			<button onClick={() => useAuth('remove')}>
+				<Link to="/">Logout</Link>
+			</button>
+		</>
+	)
 }
 
 export default Dashboard
