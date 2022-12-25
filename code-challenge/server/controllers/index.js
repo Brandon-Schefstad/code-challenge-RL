@@ -1,5 +1,5 @@
 module.exports = {
-	async renderIndexPage(req, res) {
-		res.render('index')
+	renderIndexPage(req, res) {
+		return res.json({ Home: 'Page' })
 	},
 }
