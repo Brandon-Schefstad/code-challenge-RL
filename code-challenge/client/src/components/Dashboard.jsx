@@ -14,6 +14,7 @@ const Dashboard = () => {
 			.post('/todo/postTodo', {
 				todo: document.getElementById('todo').value,
 				finished: document.getElementById('finished').value,
+				user: user,
 			})
 			.then((res) => {
 				console.log(res)

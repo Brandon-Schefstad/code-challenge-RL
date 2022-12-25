@@ -12,7 +12,7 @@ const User = new mongoose.Schema({
 	},
 	todos: [
 		{
-			text: {
+			todo: {
 				type: String,
 				required: true,
 			},
