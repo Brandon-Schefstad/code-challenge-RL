@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const indexController = require('../controllers/index')
+const authController = require('../controllers/auth')
 
-router.get('/', indexController.renderIndexPage)
+router.post('/signup', authController.handleSignUp)
 
 module.exports = router
