@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import useAuth from './hooks/useAuth'
 import Todo from './Todo'
-
 const Dashboard = () => {
 	const [todos, setTodos] = useState([])
 	const user = useAuth()
@@ -14,8 +13,10 @@ const Dashboard = () => {
 		await axios.get(`/todo/getTodo/${user}`).then((res) => {
 			console.log(res)
 			setTodos(res.data)
+			console.log(todos)
 		})
 	}
+	let todoList
 	useEffect(() => {
 		getTodo()
 	}, [])
@@ -29,24 +30,12 @@ const Dashboard = () => {
 				user: user,
 			})
 			.then((res) => {
-				console.log(res.data)
+				// console.log(res.data)
 				setTodos(res.data)
 				getTodo()
 			})
 	}
-	let todoList
-	if (todos.length) {
-		todoList = todos.map((todo) => {
-			return (
-				<Todo
-					todo={todo.todo}
-					date={todo.date}
-					finished={todo.finished}
-					_id={todo._id}
-				/>
-			)
-		})
-	}
+
 	return (
 		<>
 			<div>{user}</div>
@@ -63,7 +52,17 @@ const Dashboard = () => {
 				<Link to="/">Logout</Link>
 			</button>
 
-			{todoList}
+			{todos.map((todo) => {
+				return (
+					<Todo
+						key={todo._id}
+						todo={todo.todo}
+						date={todo.date}
+						finished={todo.finished}
+						_id={todo._id}
+					/>
+				)
+			})}
 		</>
 	)
 }

@@ -3,9 +3,6 @@ const User = require('../models/User')
 exports.postTodo = async (req, res) => {
 	try {
 		console.log('postTodos')
-
-		console.log(req.body.user)
-
 		const user = await User.findOne({
 			email: req.body.user,
 		})
@@ -19,7 +16,6 @@ exports.postTodo = async (req, res) => {
 			$push: { todos: todo },
 		})
 
-		console.log(user.todos)
 		res.send(user.todos)
 	} catch {
 		res.sendStatus(404)
