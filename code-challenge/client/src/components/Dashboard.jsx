@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom'
 import useAuth from './hooks/useAuth'
 
 const Dashboard = () => {
-	const user = useAuth('get')
+	const user = useAuth()
 	if (!user) {
 		return <Navigate to="/" replace="true" />
 	}
