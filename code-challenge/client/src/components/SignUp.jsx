@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
 	const [email, setEmail] = useState('')
@@ -9,7 +10,7 @@ const SignUp = () => {
 	const updateEmail = (e) => setEmail(e.target.value)
 	const updatePassword = (e) => setPassword(e.target.value)
 	const matchPassword = (e) => setConfirmPassword(e.target.value)
-
+	let navigate = useNavigate()
 	async function postSignUp(e) {
 		e.preventDefault()
 		if (password === confirmPassword) {
@@ -21,6 +22,7 @@ const SignUp = () => {
 				})
 				.then(function (response) {
 					console.log(response.data.message)
+					navigate('/dashboard')
 				})
 		}
 	}
