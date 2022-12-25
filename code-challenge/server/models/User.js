@@ -10,22 +10,7 @@ const User = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	todos: [
-		{
-			todo: {
-				type: String,
-				required: true,
-			},
-			date: {
-				type: Date,
-				default: Date.now(),
-			},
-			finished: {
-				type: String,
-				required: true,
-			},
-		},
-	],
+	todos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Todo' }],
 })
 
 // Password hash middleware.

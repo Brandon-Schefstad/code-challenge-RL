@@ -1,28 +1,26 @@
+const Todo = require('../models/Todo')
 const User = require('../models/User')
 exports.postTodo = async (req, res) => {
 	try {
-		console.log(req.body)
+		console.log('postTodos')
+
+		console.log(req.body.user)
+
 		const user = await User.findOne({
 			email: req.body.user,
 		})
-		await User.updateOne(
-			{
-				email: req.body.user,
-			},
-			{
-				$push: {
-					todos: {
-						todo: req.body.todo,
-						date: Date.now(),
-						finished: req.body.finished,
-					},
-				},
-			}
-		)
+		const todo = await Todo.create({
+			user: user._id,
+			todo: req.body.todo,
+			date: Date.now(),
+			finished: req.body.finished,
+		})
+		await user.updateOne({
+			$push: { todos: todo },
+		})
 
-		console.log(user.schema.tree.todos)
 		console.log(user.todos)
-		res.json(user.todos)
+		res.send(user.todos)
 	} catch {
 		res.sendStatus(404)
 	}
@@ -31,7 +29,10 @@ exports.getTodo = async (req, res) => {
 	console.log(req.params)
 	const user = await User.findOne({
 		email: req.params.user,
-	})
+	}).populate({ path: 'todos' })
 	console.log(user)
 	res.send(user.todos)
+}
+exports.deleteTodo = async (req, res) => {
+	console.log(req)
 }
