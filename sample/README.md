@@ -1,12 +1,14 @@
 # Code Sample - ESE-At-A-Glance
+## [Live Site](https://ese-at-a-glance.cyclic.app/)
+## [Github](https://github.com/Brandon-Schefstad/ESEAtAGlance)
 
 ### Summary
 
 Students with disabilities (SWD) receive an Individualized Education Plan at least once a year. This plan is a lengthy legal document indicating a student's present level, goals for this upcoming year, progress on previous goals, and a list of their accommodations for the classroom.
 
-When I was a teacher of SWD, communicating this information to other teachers was impossible. A teacher could have as many as 30 students each with their own 20+ page Individualized Education Plan. Seeking a better way, I built ESE-at-a-Glance. ESE stands for 'Exceptional Student Education', the umbrella term for the education of SWD.
+When I was a middle school teacher of SWD, communicating this information to other teachers was incredibly time consuming. For each of my 9 students, I had to explain this lengthy 20 page document to their 7 teachers. I initially started consolidating information and handing out cheat sheets to save on time, but found teachers lost them or would not read them. Seeking a better way, I built ESE-at-a-Glance. ESE stands for 'Exceptional Student Education', the umbrella term for the education of SWD. This application is designed for teachers to store and display pertinent information about our students. The database is searchable by student number and presents the results on a dashboard.
 
-This application is designed for teachers to store and display pertinent information about our students. The database is searchable by student number and displays the results on a dashboard. The frontend is written in Pug with tailwindCSS for styling.
+This code sample includes only the backend code (no views/public folder). The entire source code can be found at the GitHub link above. Since the code challenge requested backend code though I removed all frontend code for clarity. 
 
 ## Backend Structure
 
@@ -18,12 +20,12 @@ The backend API utilizes MongoDB both for storing the student/user information a
   - `passport.js` - passport configuration specifying a LocalStrategy
 - `controllers/`
   - `student/` - contains the logic for the student route
-    - `accommodations.js` - (1) loads a page displaying student accommodation data or (2) processes a POST request to update a student's accommodations.
-    - `addGoals.js` - (1) loads a form to create a new goal for a student or (2) processes a POST request to submit a new goal.
-    - `addNewStudent.js` - (1) loads a form to create a new student or (2)processes a POST request to submit a new student.
+    - `accommodations.js` - (1) renders a page displaying a student's list of accommodations or (2) accepts a POST request to update a student's accommodations.
+    - `addGoals.js` - (1) renders a form to create a new goal for a student or (2) accepts a POST request to submit a new goal.
+    - `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
     - `deleteStudent.js` - deletes a student from the database.
-    - `editStudent.js` - (1) loads a page to edit student information or (2)processes a POST request to update a student's profile on the database.
-    - `searchStudent.js` - (1) loads a form to retrieve student information or - a GET request to display a specific student's information.
+    - `editStudent.js` - (1) renders a page to edit student information or (2) accepts a POST request to update a student's profile on the database.
+    - `searchStudent.js` - (1) renders a form to retrieve student information or (2) accepts a GET request to display a specific student's information.
   - `utils/`
     - `accommodations.js` - A list of all accommodations a school district provides, split into four domains (presentation, response, setting, and scheduling)
     - `populateStudentObject.js` - The search and edit features of the app require data to be passed into the API response. This function handles the construction of that data.
