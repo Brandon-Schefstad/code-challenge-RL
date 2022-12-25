@@ -9,6 +9,7 @@ const methodOverride = require('method-override')
 const flash = require('express-flash')
 
 const indexRoutes = require('./routes/index.js')
+const todoRoutes = require('./routes/todo.js')
 app.use(flash())
 app.use(bodyParser.json())
 require('dotenv').config({ path: '.env' })
@@ -46,3 +47,4 @@ const connectDB = async () => {
 
 connectDB()
 app.use('/', indexRoutes)
+app.use('/todo', todoRoutes)
