@@ -22,8 +22,16 @@ exports.postTodo = async (req, res) => {
 
 		console.log(user.schema.tree.todos)
 		console.log(user.todos)
-		res.sendStatus(200)
+		res.json(user.todos)
 	} catch {
 		res.sendStatus(404)
 	}
+}
+exports.getTodo = async (req, res) => {
+	console.log(req.params)
+	const user = await User.findOne({
+		email: req.params.user,
+	})
+	console.log(user)
+	res.send(user.todos)
 }
