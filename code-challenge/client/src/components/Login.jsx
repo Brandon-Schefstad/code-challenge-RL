@@ -18,7 +18,7 @@ const Login = () => {
 			})
 			.then((res) => {
 				console.log(res)
-				navigate('/dashboard')
+				navigate('/dashboard', { state: { email: email } })
 			})
 	}
 

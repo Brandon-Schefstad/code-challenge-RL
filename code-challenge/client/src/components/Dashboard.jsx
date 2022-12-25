@@ -1,7 +1,10 @@
 import React from 'react'
+import { useLocation } from 'react-router'
 
 const Dashboard = () => {
-	return <div>Dashboard</div>
+	const location = useLocation()
+	const email = location.state.email
+	return <div>{email}</div>
 }
 
 export default Dashboard

@@ -21,8 +21,7 @@ const SignUp = () => {
 					confirmPassword: confirmPassword,
 				})
 				.then(function (response) {
-					console.log(response.data.message)
-					navigate('/dashboard')
+					navigate('/dashboard', { state: { email: email } })
 				})
 		}
 	}
