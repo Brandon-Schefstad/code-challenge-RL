@@ -20,7 +20,7 @@ const SignUp = () => {
 					confirmPassword: confirmPassword,
 				})
 				.then(function (response) {
-					console.log(response)
+					console.log(response.data.message)
 				})
 		}
 	}
