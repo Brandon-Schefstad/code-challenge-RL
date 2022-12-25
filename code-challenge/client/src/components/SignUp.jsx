@@ -8,15 +8,21 @@ const SignUp = () => {
 
 	const updateEmail = (e) => setEmail(e.target.value)
 	const updatePassword = (e) => setPassword(e.target.value)
-	const matchPassword = (e) => setConfirmPassword(e.target.value === password)
+	const matchPassword = (e) => setConfirmPassword(e.target.value)
 
 	async function postSignUp(e) {
 		e.preventDefault()
-		await axios
-			.post('/signup', { email: email, password: password })
-			.then(function (response) {
-				console.log(response)
-			})
+		if (password === confirmPassword) {
+			await axios
+				.post('/signup', {
+					email: email,
+					password: password,
+					confirmPassword: confirmPassword,
+				})
+				.then(function (response) {
+					console.log(response)
+				})
+		}
 	}
 
 	return (
