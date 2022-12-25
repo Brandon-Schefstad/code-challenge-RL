@@ -11,6 +11,9 @@ const Index = () => {
 				<button>
 					<Link to="/login">Login</Link>
 				</button>
+				<button>
+					<Link to="/logout">Logout</Link>
+				</button>
 			</section>
 		</>
 	)

@@ -9,6 +9,7 @@ import {
 import Dashboard from './components/Dashboard'
 import Index from './components/Index'
 import Login from './components/Login'
+import Logout from './components/Logout'
 import SignUp from './components/SignUp'
 
 const router = createBrowserRouter(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
 		<>
 			<Route path="/" element={<Index />}></Route>
 			<Route path="/login" element={<Login />}></Route>
+			<Route path="/logout" element={<Logout />}></Route>
 			<Route path="/signup" element={<SignUp />}></Route>
 			<Route path="/dashboard" element={<Dashboard />}></Route>
 		</>
