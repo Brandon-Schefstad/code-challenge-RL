@@ -6,11 +6,11 @@ const SignUp = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [confirmPassword, setConfirmPassword] = useState('')
+	const navigate = useNavigate()
 
 	const updateEmail = (e) => setEmail(e.target.value)
 	const updatePassword = (e) => setPassword(e.target.value)
 	const matchPassword = (e) => setConfirmPassword(e.target.value)
-	let navigate = useNavigate()
 	async function postSignUp(e) {
 		e.preventDefault()
 		if (password === confirmPassword) {
@@ -21,7 +21,9 @@ const SignUp = () => {
 					confirmPassword: confirmPassword,
 				})
 				.then(function (response) {
-					navigate('/dashboard', { state: { email: email } })
+					console.log(res)
+					window.localStorage.setItem('User', email)
+					navigate('/dashboard')
 				})
 		}
 	}

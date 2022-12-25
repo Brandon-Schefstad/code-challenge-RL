@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+// import useAuth from './hooks/useAuth'
+
 const Login = () => {
-	let navigate = useNavigate()
+	const navigate = useNavigate()
+
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -18,7 +21,8 @@ const Login = () => {
 			})
 			.then((res) => {
 				console.log(res)
-				navigate('/dashboard', { state: { email: email } })
+				window.localStorage.setItem('User', email)
+				navigate('/dashboard')
 			})
 	}
 
