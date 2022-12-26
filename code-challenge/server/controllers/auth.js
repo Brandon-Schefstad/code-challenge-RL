@@ -35,7 +35,7 @@ exports.handleSignup = async (req, res, next) => {
 				}
 				console.log('unique user')
 			})
-			res.sendStatus(200)
+			res.send(200, user)
 		}
 	}
 }

@@ -21,8 +21,9 @@ const SignUp = () => {
 					confirmPassword: confirmPassword,
 				})
 				.then(function (response) {
-					console.log(res)
+					console.log(response)
 					window.localStorage.setItem('User', email)
+					window.localStorage.setItem('_id', response.data._id)
 					navigate('/dashboard')
 				})
 		}
