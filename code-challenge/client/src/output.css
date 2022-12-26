@@ -2380,10 +2380,6 @@ html {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .bottom-8 {
   bottom: 2rem;
 }
@@ -2436,10 +2432,6 @@ html {
   margin-right: 2rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
 }
@@ -2450,6 +2442,10 @@ html {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mt-20 {
@@ -2484,16 +2480,16 @@ html {
   height: 9rem;
 }
 
-.w-\[24rem\] {
-  width: 24rem;
-}
-
 .w-\[40rem\] {
   width: 40rem;
 }
 
 .w-\[50\%\] {
   width: 50%;
+}
+
+.w-\[24rem\] {
+  width: 24rem;
 }
 
 .w-80 {
@@ -2520,6 +2516,10 @@ html {
   width: 24rem;
 }
 
+.w-\[20rem\] {
+  width: 20rem;
+}
+
 .max-w-sm {
   max-width: 24rem;
 }
@@ -2544,12 +2544,20 @@ html {
   justify-content: space-between;
 }
 
-.gap-12 {
-  gap: 3rem;
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .gap-8 {
@@ -2637,20 +2645,20 @@ html {
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
-.p-8 {
-  padding: 2rem;
-}
-
-.p-12 {
-  padding: 3rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 .p-4 {
   padding: 1rem;
+}
+
+.p-12 {
+  padding: 3rem;
 }
 
 .py-8 {
@@ -2661,6 +2669,16 @@ html {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .py-12 {
@@ -2678,28 +2696,8 @@ html {
   padding-bottom: 0.5rem;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .text-center {
   text-align: center;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-3xl {
@@ -2710,6 +2708,16 @@ html {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-6xl {
