@@ -46,3 +46,18 @@ exports.getAllTodos = async (req, res) => {
 		res.sendStatus(404)
 	}
 }
+
+exports.editTodo = async (req, res) => {
+	const updateTodo = { ...req.body, date: Date.now() }
+	try {
+		await Todo.updateOne(
+			{
+				_id: req.body._id,
+			},
+			updateTodo
+		)
+		res.send(200, updateTodo)
+	} catch {
+		res.sendStatus(404)
+	}
+}
