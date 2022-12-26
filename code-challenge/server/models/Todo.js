@@ -11,7 +11,7 @@ const Todo = new mongoose.Schema({
 		default: Date.now(),
 	},
 	finished: {
-		type: String,
+		type: Boolean,
 		required: true,
 	},
 })
