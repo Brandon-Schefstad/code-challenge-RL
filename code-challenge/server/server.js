@@ -13,9 +13,24 @@ const todoRoutes = require('./routes/todo.js')
 app.use(flash())
 app.use(bodyParser.json())
 require('dotenv').config({ path: './code-challenge/server/.env' })
-app.listen(process.env.PORT || 8000, () => {
-	console.log(`http://localhost:${process.env.PORT}`)
-})
+
+const connectDB = async () => {
+	try {
+		const conn = await mongoose.connect(process.env.MONGO_URI)
+		console.log(`MongoDB Connected: ${conn.connection.host}`)
+	} catch (err) {
+		console.error(err)
+		process.exit(1)
+	}
+}
+async function connect() {
+	connectDB().then(
+		app.listen(process.env.PORT || 2121, () => {
+			console.log(`http://localhost:${process.env.PORT}`)
+		})
+	)
+}
+connect()
 
 /**Session configs */
 app.use(
@@ -34,17 +49,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(methodOverride('_method'))
-const connectDB = async () => {
-	try {
-		const conn = await mongoose.connect(process.env.MONGO_URI)
-		console.log(`MongoDB Connected: ${conn.connection.host}`)
-	} catch (err) {
-		console.error(err)
-		process.exit(1)
-	}
-}
+
 /**Passport */
 
-connectDB()
 app.use('/', indexRoutes)
 app.use('/todo', todoRoutes)
