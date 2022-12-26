@@ -3,10 +3,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
-const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
+const Todo = ({ todo, finished, _id, getTodo, user }) => {
 	const [todoObject, setTodoObject] = useState({
 		todo: todo,
-		date: date,
 		finished,
 		_id: _id,
 		user: user,
@@ -22,7 +21,7 @@ const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
 		})
 	}
 	async function snoozeTodo() {
-		setSnooze(true)
+		setSnooze(!snooze)
 	}
 	function toggleEdit() {
 		setEdit(!edit)
@@ -45,19 +44,65 @@ const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
 				/>
 			)
 		}
+		let finishedHeading = todoObject.finished === true ? 'Finished' : 'Not Yet'
 		return (
-			<>
-				<li key={todoObject._id}>
+			<div className="card bg-gray-400 text-slate-900 p-4 flex flex-col ">
+				<section key={todoObject._id} className="">
 					<Link to={`/todo/${todoObject._id}`}>
-						<h3>{todoObject.todo}</h3>
+						<h3 className="text-2xl text-center mb-4">{todoObject.todo}</h3>
 					</Link>
-					<h3>{date.slice(0, 10)}</h3>
-					<h4>{JSON.stringify(todoObject.finished)}</h4>
-					<button onClick={deleteTodo}>DELETE</button>
-					<button onClick={snoozeTodo}>SNOOZE</button>
-					<button onClick={toggleEdit}>EDIT</button>
-				</li>
-			</>
+
+					<h4
+						className={'card mb-4 mx-8 py-2 text-xl text-center bg-black '.concat(
+							finishedHeading === 'Finished'
+								? ' text-green-400'
+								: ' text-red-400'
+						)}>
+						{finishedHeading}
+					</h4>
+					<section className="buttons px-12 flex w-full justify-between">
+						<button
+							className="btn bg-red-400  hover:text-red-400 hover:border-1 hover:border-solid hover:border-red-400 text-slate-900"
+							onClick={deleteTodo}>
+							DELETE
+						</button>
+						<button
+							className="btn bg-blue-400   hover:text-blue-400 hover:border-1 hover:border-solid hover:border-blue-400 text-slate-900"
+							onClick={snoozeTodo}>
+							SNOOZE
+						</button>
+						<button
+							className="btn bg-yellow-400   hover:text-yellow-400 hover:border-1 hover:border-solid hover:border-yellow-400 text-slate-900"
+							onClick={toggleEdit}>
+							EDIT
+						</button>
+					</section>
+					<Link to={`/todo/${todoObject._id}`}>
+						<span className="mt-4 ml-6 block">Permalink</span>
+					</Link>
+				</section>
+			</div>
+		)
+	} else {
+		let finishedHeading = todoObject.finished === true ? 'Finished' : 'Not Yet'
+		return (
+			<div className="card bg-gray-400 text-slate-900 p-4 flex flex-col ">
+				<section key={todoObject._id} className="">
+					<h3 className="text-2xl text-center mb-4">{todoObject.todo}</h3>
+
+					<h4
+						className={'card mb-4 mx-8 py-2 text-xl text-center bg-black '.concat(
+							finishedHeading === 'Finished'
+								? ' text-green-400'
+								: ' text-red-400'
+						)}>
+						{finishedHeading}
+					</h4>
+				</section>
+				<Link to={`/todo/${todoObject._id}`}>
+					<span className="mt-4 block">Permalink to {todoObject._id}</span>
+				</Link>
+			</div>
 		)
 	}
 }

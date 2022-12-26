@@ -21,6 +21,7 @@ function validateForm(req) {
 }
 
 exports.handleSignup = async (req, res, next) => {
+	console.log(req.body)
 	if (validateForm(req)) {
 		const user = new User({
 			email: req.body.email,

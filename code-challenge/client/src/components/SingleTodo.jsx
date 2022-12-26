@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const SingleTod = ({}) => {
+const SingleTodo = ({}) => {
 	const [singleTodo, setSingleTodo] = useState()
 	let { _id } = useParams()
 	async function getSingleTodo() {
@@ -17,15 +17,15 @@ const SingleTod = ({}) => {
 	if (singleTodo) {
 		console.log(singleTodo.finished)
 		return (
-			<>
-				<h1>_id: {singleTodo._id}</h1>
-				<h1>user_id: {singleTodo.user}</h1>
-				<h1>text: {singleTodo.todo}</h1>
-				<h1>date: {singleTodo.date}</h1>
-				<h1>completed: {JSON.stringify(singleTodo.finished)}</h1>
-			</>
+			<section className="p-8">
+				<h1>To Do #{singleTodo._id}</h1>
+				<h3>user_id: {singleTodo.user}</h3>
+				<h3>text: {singleTodo.todo}</h3>
+				<h3>date: {singleTodo.date}</h3>
+				<h3>completed: {JSON.stringify(singleTodo.finished)}</h3>
+			</section>
 		)
 	}
 }
 
-export default SingleTod
+export default SingleTodo

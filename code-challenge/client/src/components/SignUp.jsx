@@ -28,19 +28,42 @@ const SignUp = () => {
 				})
 		}
 	}
-
+	const inputStyling = 'input input-bordered w-full max-w-sm'
 	return (
-		<>
-			<form onSubmit={postSignUp}>
+		<div className="grid w-[80rem] m-auto text-4xl card card-compact bg-gray-600 py-20 my-20">
+			<form
+				className="grid grid-cols-2 w-[60rem] gap-12 m-auto  place-self-center"
+				onSubmit={postSignUp}>
 				<label htmlFor="email">Email</label>
-				<input type="text" name="email" onChange={updateEmail} />
-				<label htmlFor="password">password</label>
-				<input type="text" name="password" onChange={updatePassword} />
-				<label htmlFor="confirm">confirm password</label>
-				<input type="text" name="confirm" onChange={matchPassword} />
-				<input type="submit" value="Submit" />
+				<input
+					className={inputStyling}
+					type="text"
+					name="email"
+					onChange={updateEmail}
+				/>
+				<label htmlFor="password">Password</label>
+				<input
+					className={inputStyling}
+					type="text"
+					name="password"
+					onChange={updatePassword}
+				/>
+				<label htmlFor="confirm">Confirm Password</label>
+				<input
+					className={inputStyling}
+					type="text"
+					name="confirm"
+					onChange={matchPassword}
+				/>
+				<input
+					className={
+						'col-span-2 btn py-2 m-auto w-[40rem] border-2 border-solid border-rose-300 text-2xl mt-8'
+					}
+					type="submit"
+					value="Submit"
+				/>
 			</form>
-		</>
+		</div>
 	)
 }
 
