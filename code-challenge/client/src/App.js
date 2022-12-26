@@ -6,6 +6,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom'
 
+import AllTodos from './components/AllTodos'
 import Dashboard from './components/Dashboard'
 import Index from './components/Index'
 import Login from './components/Login'
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
 			<Route path="/logout" element={<Logout />}></Route>
 			<Route path="/signup" element={<SignUp />}></Route>
 			<Route path="/dashboard" element={<Dashboard />}></Route>
+			<Route path="/allTodos" element={<AllTodos />}></Route>
 		</>
 	)
 )

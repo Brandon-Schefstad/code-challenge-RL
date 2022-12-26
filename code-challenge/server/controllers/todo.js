@@ -22,13 +22,27 @@ exports.postTodo = async (req, res) => {
 	}
 }
 exports.getTodo = async (req, res) => {
-	console.log(req.params)
 	const user = await User.findOne({
 		email: req.params.user,
 	}).populate({ path: 'todos' })
-	console.log(user)
+
 	res.send(user.todos)
 }
 exports.deleteTodo = async (req, res) => {
-	console.log(req)
+	try {
+		await Todo.deleteOne({
+			_id: req.params._id,
+		})
+		res.sendStatus(200)
+	} catch {
+		res.sendStatus(404)
+	}
+}
+exports.getAllTodos = async (req, res) => {
+	try {
+		const todos = await Todo.find({})
+		res.send(todos)
+	} catch {
+		res.sendStatus(404)
+	}
 }
