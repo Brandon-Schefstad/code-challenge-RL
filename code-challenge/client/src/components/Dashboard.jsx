@@ -50,36 +50,36 @@ const Dashboard = () => {
 				/>
 			)
 		})
+		return (
+			<>
+				<div>{user}</div>
+
+				<form onSubmit={postTodo}>
+					<label htmlFor="todo"></label>
+					<input type="text" name="todo" id="todo" />
+					<label htmlFor="finished">|Finished|</label>
+					<input
+						type="checkbox"
+						name="finished"
+						id="finished"
+						onClick={() => {
+							setCheckBox(!checkBox)
+							console.log(checkBox)
+						}}
+					/>
+					<input type="submit" value="Add Todo" />
+				</form>
+
+				<button onClick={() => useAuth('remove')}>
+					<Link to="/">Logout</Link>
+				</button>
+				<button>
+					<Link to="/allTodos">See all Todos</Link>
+				</button>
+				{todoList}
+			</>
+		)
 	}
-	return (
-		<>
-			<div>{user}</div>
-
-			<form onSubmit={postTodo}>
-				<label htmlFor="todo"></label>
-				<input type="text" name="todo" id="todo" />
-				<label htmlFor="finished">|Finished|</label>
-				<input
-					type="checkbox"
-					name="finished"
-					id="finished"
-					onClick={() => {
-						setCheckBox(!checkBox)
-						console.log(checkBox)
-					}}
-				/>
-				<input type="submit" value="Add Todo" />
-			</form>
-
-			<button onClick={() => useAuth('remove')}>
-				<Link to="/">Logout</Link>
-			</button>
-			<button>
-				<Link to="/allTodos">See all Todos</Link>
-			</button>
-			{todoList}
-		</>
-	)
 }
 
 export default Dashboard
