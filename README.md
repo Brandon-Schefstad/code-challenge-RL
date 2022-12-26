@@ -15,10 +15,10 @@ Make a simple to-do list API. You can use whatever language or framework you wou
 like.
 Here are the requirements for the API:
 
-1. Add a to-do
-2. Change a to-do
-3. Delete a to-do (do a soft delete)
-4. List all todos
+1. Add a to-do [FINISHED]
+2. Change a to-do [FINISHED]
+3. Delete a to-do (do a soft delete) [FINISHED]
+4. List all todos [FINISHED]
 5. Return a todo
-6. login
+6. login [FINISHED]
 7. return a user

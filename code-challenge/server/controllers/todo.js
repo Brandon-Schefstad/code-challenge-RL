@@ -61,3 +61,14 @@ exports.editTodo = async (req, res) => {
 		res.sendStatus(404)
 	}
 }
+
+exports.getSingleTodo = async (req, res) => {
+	try {
+		const todo = await Todo.findOne({
+			_id: req.params._id,
+		}).lean()
+		res.send(todo)
+	} catch {
+		res.sendStatus(404)
+	}
+}

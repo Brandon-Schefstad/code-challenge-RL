@@ -12,6 +12,7 @@ import Index from './components/Index'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import SignUp from './components/SignUp'
+import SingleTodo from './components/SingleTodo'
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 			<Route path="/signup" element={<SignUp />}></Route>
 			<Route path="/dashboard" element={<Dashboard />}></Route>
 			<Route path="/allTodos" element={<AllTodos />}></Route>
+			<Route path="/todo/:_id" element={<SingleTodo />}></Route>
 		</>
 	)
 )

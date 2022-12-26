@@ -4,6 +4,7 @@ const indexController = require('../controllers/index')
 const authController = require('../controllers/auth')
 const dashboardController = require('../controllers/dashboard')
 
+router.get('/', indexController.renderIndexPage)
 router.post('/signup', authController.handleSignup)
 router.post('/dashboard', dashboardController.loadDashboard)
 router.post('/login', authController.postLogin)
