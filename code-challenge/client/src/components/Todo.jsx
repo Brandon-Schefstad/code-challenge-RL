@@ -1,13 +1,20 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import EditForm from './EditForm'
 
 const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
+	const [todoObject, setTodoObject] = useState({
+		todo: todo,
+		date: date,
+		finished,
+		_id: _id,
+		user: user,
+	})
 	const [snooze, setSnooze] = useState(false)
 	const [edit, setEdit] = useState(false)
-	const [checkBox, setCheckBox] = useState(false)
+
 	const user_id = window.localStorage.getItem('_id')
 	const user_idMatches = user_id === user
-
 	async function deleteTodo() {
 		await axios.delete(`/todo/deleteTodo/${_id}`).then((res) => {
 			snoozeTodo()
@@ -16,49 +23,37 @@ const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
 	async function snoozeTodo() {
 		setSnooze(true)
 	}
-	function editTodo() {
-		console.log(edit)
+	function toggleEdit() {
 		setEdit(!edit)
 	}
 
-	async function editTodoReq() {
-		axios.put('/todos/editTodo')
-	}
 	if (user_idMatches) {
 		if (snooze) {
 			return <></>
 		}
 		if (edit) {
 			return (
-				<li key={_id}>
-					<form onSubmit={editTodoReq}>
-						<label htmlFor="todo"></label>
-						<input type="text" name="todo" id="todo" value={todo} />
-						<label htmlFor="finished"></label>
-						<input
-							type="checkbox"
-							name="finished"
-							id="finished"
-							onClick={() => {
-								setCheckBox(!checkBox)
-								console.log(checkBox)
-							}}
-							value={checkBox}
-						/>
-						<input type="submit" value="Add Todo" />
-					</form>
-				</li>
+				<EditForm
+					todo_id={todoObject._id}
+					todo={todoObject.todo}
+					user={todoObject.user}
+					setEdit={setEdit}
+					setTodoObject={setTodoObject}
+					edit={edit}
+					getTodo={getTodo}
+				/>
 			)
 		}
+		console.log(todoObject.finished)
 		return (
 			<>
-				<li key={_id}>
-					<h2>{todo}</h2>
-					{/* <h3>{date.slice(0, 10)}</h3> */}
-					<h4>{finished}</h4>
+				<li key={todoObject._id}>
+					<h2>{todoObject.todo}</h2>
+					<h3>{date.slice(0, 10)}</h3>
+					<h4>{JSON.stringify(todoObject.finished)}</h4>
 					<button onClick={deleteTodo}>DELETE</button>
 					<button onClick={snoozeTodo}>SNOOZE</button>
-					<button onClick={editTodo}>EDIT</button>
+					<button onClick={toggleEdit}>EDIT</button>
 				</li>
 			</>
 		)
