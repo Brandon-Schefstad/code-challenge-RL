@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
@@ -44,11 +45,12 @@ const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
 				/>
 			)
 		}
-		console.log(todoObject.finished)
 		return (
 			<>
 				<li key={todoObject._id}>
-					<h2>{todoObject.todo}</h2>
+					<Link to={`/todo/${todoObject._id}`}>
+						<h3>{todoObject.todo}</h3>
+					</Link>
 					<h3>{date.slice(0, 10)}</h3>
 					<h4>{JSON.stringify(todoObject.finished)}</h4>
 					<button onClick={deleteTodo}>DELETE</button>
