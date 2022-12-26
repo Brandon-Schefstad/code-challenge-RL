@@ -5,24 +5,23 @@ const Index = () => {
 	const authButton = window.localStorage.getItem('_id') ? (
 		<>
 			{' '}
-			<button className="btn ">
-				<Link to="/logout">Logout</Link>
-			</button>
+			<Link to="/logout">
+				<button className="btn ">Logout</button>
+			</Link>
 		</>
 	) : (
 		<>
-			{' '}
-			<button className="btn">
-				<Link to="/login">Login</Link>
-			</button>
+			<Link to="/login">
+				<button className="btn">Login</button>
+			</Link>
 		</>
 	)
 	return (
 		<div className="grid">
 			<section className="grid grid-cols-2 text-3xl w-80 gap-4 m-auto mt-20">
-				<button className="btn">
-					<Link to="/signup">Sign Up</Link>
-				</button>
+				<Link to="/signup">
+					<button className="btn">Sign Up</button>
+				</Link>
 				{authButton}
 			</section>
 		</div>
