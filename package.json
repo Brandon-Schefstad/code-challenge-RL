@@ -1,0 +1,20 @@
+{
+	"name": "code-challenge-rl",
+	"version": "1.0.0",
+	"description": "Please share samples of code you've personally written for one or two completed Backend projects. The samples can be from personal, academic, or professional projects. Here are some guidelines to help provide more context on what we're looking for:",
+	"main": "index.js",
+	"scripts": {
+		"start": "node code-challenge/server/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Brandon-Schefstad/code-challenge-RL.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Brandon-Schefstad/code-challenge-RL/issues"
+	},
+	"homepage": "https://github.com/Brandon-Schefstad/code-challenge-RL#readme"
+}
