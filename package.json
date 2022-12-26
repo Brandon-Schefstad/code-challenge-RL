@@ -4,8 +4,8 @@
 	"description": "Please share samples of code you've personally written for one or two completed Backend projects. The samples can be from personal, academic, or professional projects. Here are some guidelines to help provide more context on what we're looking for:",
 	"main": "index.js",
 	"scripts": {
-		"start": "node code-challenge/server/server.js",
-		"dev": "nodemon code-challenge/server/server.js"
+		"start": "node server.js",
+		"dev": "nodemon server.js"
 	},
 	"repository": {
 		"type": "git",
