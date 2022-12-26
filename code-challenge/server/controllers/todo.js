@@ -3,6 +3,7 @@ const User = require('../models/User')
 exports.postTodo = async (req, res) => {
 	try {
 		console.log('postTodos')
+		console.log(req.body)
 		const user = await User.findOne({
 			email: req.body.user,
 		})
@@ -39,6 +40,7 @@ exports.deleteTodo = async (req, res) => {
 	}
 }
 exports.getAllTodos = async (req, res) => {
+	console.log('getting all todos')
 	try {
 		const todos = await Todo.find({})
 		res.send(todos)
@@ -67,7 +69,7 @@ exports.getSingleTodo = async (req, res) => {
 		const todo = await Todo.findOne({
 			_id: req.params._id,
 		}).lean()
-		res.send(todo)
+		res.json(todo)
 	} catch {
 		res.sendStatus(404)
 	}

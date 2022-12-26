@@ -45,21 +45,21 @@ const Todo = ({ todo, date, finished, _id, getTodo, user }) => {
 				/>
 			)
 		}
-		return (
-			<>
-				<li key={todoObject._id}>
-					<Link to={`/todo/${todoObject._id}`}>
-						<h3>{todoObject.todo}</h3>
-					</Link>
-					<h3>{date.slice(0, 10)}</h3>
-					<h4>{JSON.stringify(todoObject.finished)}</h4>
-					<button onClick={deleteTodo}>DELETE</button>
-					<button onClick={snoozeTodo}>SNOOZE</button>
-					<button onClick={toggleEdit}>EDIT</button>
-				</li>
-			</>
-		)
 	}
+	return (
+		<>
+			<section key={todoObject._id}>
+				<Link to={`/todo/${todoObject._id}`}>
+					<h3>{todoObject.todo}</h3>
+				</Link>
+				<h3>{date.slice(0, 10)}</h3>
+				<h4>{JSON.stringify(todoObject.finished)}</h4>
+				<button onClick={deleteTodo}>DELETE</button>
+				<button onClick={snoozeTodo}>SNOOZE</button>
+				<button onClick={toggleEdit}>EDIT</button>
+			</section>
+		</>
+	)
 }
 
 export default Todo

@@ -19,6 +19,6 @@ Here are the requirements for the API:
 2. Change a to-do [FINISHED]
 3. Delete a to-do (do a soft delete) [FINISHED]
 4. List all todos [FINISHED]
-5. Return a todo
+5. Return a todo [FINISHED]
 6. login [FINISHED]
 7. return a user
