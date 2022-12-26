@@ -15,6 +15,8 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 
 	const user_id = window.localStorage.getItem('_id')
 	const user_idMatches = user_id === user
+	console.log(user)
+	console.log(user_id)
 	async function deleteTodo() {
 		await axios.delete(`/todo/deleteTodo/${_id}`).then((res) => {
 			snoozeTodo()
@@ -60,7 +62,7 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 						)}>
 						{finishedHeading}
 					</h4>
-					<section className="buttons px-12 flex w-full justify-between">
+					<section className="buttons w-[20rem] flex  justify-evenly m-auto">
 						<button
 							className="btn bg-red-400  hover:text-red-400 hover:border-1 hover:border-solid hover:border-red-400 text-slate-900"
 							onClick={deleteTodo}>
@@ -77,9 +79,9 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 							EDIT
 						</button>
 					</section>
-					<Link to={`/todo/${todoObject._id}`}>
-						<span className="mt-4 ml-6 block">Permalink</span>
-					</Link>
+					<span className="mt-4 ml-6 block">
+						<Link to={`/todo/${todoObject._id}`}>Permalink</Link>
+					</span>
 				</section>
 			</div>
 		)

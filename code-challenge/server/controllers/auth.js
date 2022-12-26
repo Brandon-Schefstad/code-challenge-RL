@@ -21,7 +21,6 @@ function validateForm(req) {
 }
 
 exports.handleSignup = async (req, res, next) => {
-	console.log(req.body)
 	if (validateForm(req)) {
 		const user = new User({
 			email: req.body.email,
@@ -40,7 +39,8 @@ exports.handleSignup = async (req, res, next) => {
 		}
 	}
 }
-exports.postLogin = (req, res, next) => {
+exports.postLogin = async (req, res, next) => {
+	console.log(req.body)
 	if (validateForm(req)) {
 		passport.authenticate('local', (err, user, info) => {
 			if (err) {
@@ -57,8 +57,12 @@ exports.postLogin = (req, res, next) => {
 					return next(err)
 				}
 				req.flash('success', { msg: 'Success! You are logged in.' })
-				res.sendStatus(200)
 			})
 		})(req, res, next)
+		const { _id } = await User.findOne({
+			email: req.body.email,
+		})
+		const justIdNum = JSON.stringify(_id).split('"')[1]
+		res.send(200, justIdNum)
 	}
 }

@@ -12,6 +12,7 @@ const SignUp = () => {
 	const updatePassword = (e) => setPassword(e.target.value)
 	const matchPassword = (e) => setConfirmPassword(e.target.value)
 	async function postSignUp(e) {
+		console.log('sign up')
 		e.preventDefault()
 		if (password === confirmPassword) {
 			await axios
