@@ -12,7 +12,7 @@ const indexRoutes = require('./routes/index.js')
 const todoRoutes = require('./routes/todo.js')
 app.use(flash())
 app.use(bodyParser.json())
-require('dotenv').config({ path: '.env' })
+require('dotenv').config({ path: './code-challenge/server/.env' })
 app.listen(process.env.PORT || 8000, () => {
 	console.log(`http://localhost:${process.env.PORT}`)
 })

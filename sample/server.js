@@ -9,7 +9,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const cookieParser = require('cookie-parser')
-require('dotenv').config({ path: './config/.env' })
+require('dotenv').config({ path: './sample/config/.env' })
 
 /**Routes */
 const mainRoutes = require('./routes')
