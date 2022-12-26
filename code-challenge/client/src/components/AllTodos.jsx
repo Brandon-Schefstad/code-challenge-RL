@@ -15,9 +15,9 @@ const AllTodos = () => {
 	}, [])
 	if (allTodos) {
 		return (
-			<>
-				<h1>All Todos!</h1>
-				<button>
+			<section className="grid grid-cols-2 gap-12 p-8">
+				<h1 className={'col-start-1 text-5xl'}>All Todos!</h1>
+				<button className={'col-start-2 btn w-[24rem] m-auto'}>
 					<Link to="/dashboard">Back</Link>
 				</button>
 
@@ -33,7 +33,7 @@ const AllTodos = () => {
 						/>
 					)
 				})}
-			</>
+			</section>
 		)
 	}
 }

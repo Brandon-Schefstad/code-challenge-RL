@@ -10,6 +10,7 @@ const flash = require('express-flash')
 
 const indexRoutes = require('./routes/index.js')
 const todoRoutes = require('./routes/todo.js')
+const userRoutes = require('./routes/user.js')
 
 app.use(flash())
 app.use(bodyParser.json())
@@ -55,3 +56,4 @@ app.use(methodOverride('_method'))
 
 app.use('/', indexRoutes)
 app.use('/todo', todoRoutes)
+app.use('/user', userRoutes)

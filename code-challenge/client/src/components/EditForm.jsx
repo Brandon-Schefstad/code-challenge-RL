@@ -31,20 +31,37 @@ const EditForm = ({
 	}
 
 	return (
-		<li key={todo_id}>
+		<li
+			key={todo_id}
+			className="card bg-gray-300 text-slate-900 p-4 flex flex-col">
 			<form onSubmit={editTodoReq}>
-				<label htmlFor="todo"></label>
-				<input type="text" name="todo" id="todoEdit" placeholder={todo} />
-				<label htmlFor="finished"></label>
+				<section className="m-auto w-[55%]">
+					<label htmlFor="todo"></label>
+					<input
+						className="p-2 m-auto "
+						type="text"
+						name="todo"
+						id="todoEdit"
+						placeholder={todo}
+					/>
+				</section>
+				<div className="divide bg-red-800 h-[0.25rem] mx-4  my-4 block"></div>
+				<section className="w-[50%] m-auto  grid grid-cols-2">
+					<label htmlFor="finished">Finished?</label>
+					<input
+						type="checkbox"
+						name="finished"
+						id="finished"
+						onClick={() => {
+							setCheckBox(!checkBox)
+						}}
+					/>
+				</section>
 				<input
-					type="checkbox"
-					name="finished"
-					id="finished"
-					onClick={() => {
-						setCheckBox(!checkBox)
-					}}
+					className="btn bg-green-400 hover:text-green-400 text-slate-900 w-[50%] block mt-4 m-auto"
+					type="submit"
+					value="Submit Edit"
 				/>
-				<input type="submit" value="Edit Todo" />
 			</form>
 		</li>
 	)

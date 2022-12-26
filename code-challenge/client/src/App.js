@@ -8,11 +8,13 @@ import {
 
 import AllTodos from './components/AllTodos'
 import Dashboard from './components/Dashboard'
+import Footer from './components/Footer'
 import Index from './components/Index'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import SignUp from './components/SignUp'
 import SingleTodo from './components/SingleTodo'
+import './output.css'
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -32,6 +34,7 @@ function App() {
 	return (
 		<>
 			<RouterProvider router={router} />
+			<Footer />
 		</>
 	)
 }
