@@ -22,7 +22,7 @@ const Login = () => {
 			.then((res) => {
 				console.log(res)
 				window.localStorage.setItem('User', email)
-				window.localStorage.setItem('_id', res.data._id)
+				window.localStorage.setItem('_id', res.data)
 				navigate('/dashboard')
 			})
 	}
