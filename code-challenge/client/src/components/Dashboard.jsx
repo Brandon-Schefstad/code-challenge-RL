@@ -40,8 +40,8 @@ const Dashboard = () => {
 			)
 		})
 		return (
-			<div className="px-12 py-6">
-				<h1 className="text-4xl mb-8">User: {user}</h1>
+			<div className="px-12 pt-6 py-24 max-w-[1400px] m-auto">
+				<h1 className="text-4xl mb-8">Current User: {user}</h1>
 				<SearchUserForm />
 				<AddNewToDoForm
 					setQuery={setQuery}
@@ -52,7 +52,7 @@ const Dashboard = () => {
 					getTodo={getTodo}
 					user={user}
 				/>
-				<section className="grid grid-cols-4 gap-8 py-12">{todoList}</section>
+				<section className="grid grid-cols-3 gap-8 py-8">{todoList}</section>
 				<section className="w-80 grid grid-cols-2 gap-4 fixed bottom-8 left-8">
 					<button className="btn">
 						<Link to="/logout">Logout</Link>

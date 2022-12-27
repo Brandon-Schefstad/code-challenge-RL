@@ -35,7 +35,7 @@ const AddNewToDoForm = ({
 
 	return (
 		<form
-			className="card flex flex-cols gap-2 w-[40rem] mt-8 bg-slate-600 py-8 px-16"
+			className="card flex flex-cols gap-2 w-[34rem] mt-8 bg-slate-600 py-8 px-16"
 			onSubmit={postTodo}>
 			<h2 className="text-3xl">Add a new ToDo</h2>
 			<label htmlFor="todo"></label>

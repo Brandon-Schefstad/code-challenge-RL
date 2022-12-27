@@ -62,7 +62,7 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 						)}>
 						{finishedHeading}
 					</h4>
-					<section className="buttons w-[20rem] flex  justify-evenly m-auto">
+					<section className="buttons flex gap-2 justify-evenly m-auto">
 						<button
 							className="btn bg-red-400  hover:text-red-400 hover:border-1 hover:border-solid hover:border-red-400 text-slate-900"
 							onClick={deleteTodo}>

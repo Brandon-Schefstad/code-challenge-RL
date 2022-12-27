@@ -15,11 +15,13 @@ const AllTodos = () => {
 	}, [])
 	if (allTodos) {
 		return (
-			<section className="grid grid-cols-2 gap-12 p-8">
-				<h1 className={'col-start-1 text-5xl'}>All Todos!</h1>
+			<section className="grid grid-cols-3 gap-8 p-8">
 				<Link to="/dashboard">
-					<button className={'col-start-2 btn w-[24rem] m-auto'}>Back</button>
+					<button className={'col-start-2 btn w-[12rem] m-auto'}>Back</button>
 				</Link>
+				<h1 className={'col-span-3 m-auto text-5xl mb-8 mt-[-2rem] text-left'}>
+					All Todos!
+				</h1>
 
 				{allTodos.map((entry) => {
 					return (
