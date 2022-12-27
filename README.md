@@ -1,80 +1,64 @@
 # Intro
-Hello! Within this repo you will find both the completed coding challenge for a to-do api as well as sample code from a full stack application I created. 
 
-The To-do API is a full MERN stack application 
-+  API endpoint available at [https://backend-for-rl.cyclic.app/](https://backend-for-rl.cyclic.app/). 
-    + Also GET route available at [https://backend-for-rl.cyclic.app/api/todo/getAllTodos](https://backend-for-rl.cyclic.app/api/todo/getAllTodos)
-    + Also GET route available at [https://backend-for-rl.cyclic.app/api/user/bschefstad-admin@gmail.com](https://backend-for-rl.cyclic.app/api/user/bschefstad-admin@gmail.com)
-+  Frontend UI available at [https://frontend-for-rl.netlify.app/](https://frontend-for-rl.netlify.app/). 
-    + Use email `bschefstad-admin@gmail.com` and password `bschefstad-admin@gmail.com` for quick access.
+Hello! Within this repo you will find both the completed coding challenge for a to-do api as well as sample code from a full stack application I created.
 
+The To-do API is a full MERN stack application
 
+- API endpoint available at [https://backend-for-rl.cyclic.app/](https://backend-for-rl.cyclic.app/).
+  - Also GET route available at [https://backend-for-rl.cyclic.app/api/todo/getAllTodos](https://backend-for-rl.cyclic.app/api/todo/getAllTodos)
+  - Also GET route available at [https://backend-for-rl.cyclic.app/api/user/bschefstad-admin@gmail.com](https://backend-for-rl.cyclic.app/api/user/bschefstad-admin@gmail.com)
+- Frontend UI available at [https://frontend-for-rl.netlify.app/](https://frontend-for-rl.netlify.app/).
+  - Use email `bschefstad-admin@gmail.com` and password `bschefstad-admin@gmail.com` for quick access.
 
-My application's called  'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB. 
-+ Application available at [https://ese-at-a-glance.cyclic.app/](https://ese-at-a-glance.cyclic.app/)
+My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB.
 
+- Application available at [https://ese-at-a-glance.cyclic.app/](https://ese-at-a-glance.cyclic.app/)
 
 ## Prompt:
 
-  
-
 Please share samples of code you've personally written for one or two completed Backend projects. The samples can be from personal, academic, or professional projects. Here are some guidelines to help provide more context on what we're looking for:
-
-  
 
 - Code that is clean and maintainable
 
-  
-
 - There is some type of design pattern followed (MVVM, etc)
-
-  
 
 - Solid understanding of Backend domain knowledge (navigation, state management, etc).
 
-  
-
 - Code that you wrote. If it is a team project, please include the git history with the repo so we can clearly know what you worked on vs the rest of the team.
-
-  
 
 You can either reply to this email with zip file(s) attached or send us GitHub link(s). If you do not have any up to date work, we encourage you to take our coding challenge which can be found attached to this email.
 
-  
-
-# Code- Challenge: To Do API 
+# Code - Challenge: To Do API
 
 ## All Routes:
 
-  
-
-/   Index page GET
+/ Index page GET
 
 /api
-+ /auth
 
-	+  /signup - POST
+- /auth
 
-	+  /login - POST
+  - /signup - POST
 
- 
-+	/todo
+  - /login - POST
 
-	+  /getAllTodos - GET
+- /todo
 
-	+  /:_id - GET
+  - /getAllTodos - GET
 
-	+ /getTodo/:user - GET
+  - /:\_id - GET
 
-	+ /postTodo - POST
+  - /getTodo/:user - GET
 
-	+ /deleteTodo/:_id - DELETE 
+  - /postTodo - POST
 
-	+  /editTodo/:_id - PUT
+  - /deleteTodo/:\_id - DELETE
 
-+ /user
+  - /editTodo/:\_id - PUT
 
-	+  /:email - GET
+- /user
+
+  - /:email - GET
 
 ## Requirements
 
@@ -96,25 +80,17 @@ finished: Boolean
 }
 ```
 
-
-
 ### 2. & 3. Change a to-do & Delete a to-do (do a soft delete)
 
 If the current logged-in user's \_id (from localStorage) matches the \_id of the to-do's user property, three buttons will be displayed: edit, snooze, and delete. 'Edit' will update the db via PUT request to `/api/todo/editTodo/:\_id`, 'snooze' will remove the to-do from the UI until next page refresh (soft delete), and 'delete' will remove a to-do from the db via DELETE request to `/api/todo/deleteTodo/:\_id`
-
-  
 
 ### 4. List all to-dos
 
 - `/api/todo/getAllTodos/` Fetches all todos from the database, to-dos owned by the user will show the edit, snooze, and delete buttons.
 
-  
-
 ### 5. Return a to-do
 
 - Each to-do card has a permalink to `/api/todo/:_id`, this shows a page to view a single to-do. A user does not need to own the to-do to visit the permalink (e.g. if they click the link from the page showing all to-dos).
-
-  
 
 ### 6. login
 
@@ -131,115 +107,101 @@ todos: todo[],
 
 }
 ```
-- Passport uses local strategy on login, the user's email and \_id are set in localStorage and used client side.
 
-  
+- Passport uses local strategy on login, the user's email and \_id are set in localStorage and used client side.
 
 ### 7. return a user
 
 - On the dashboard page, a form accepts an email and returns that user's to-dos. GET request to `user/:email`.
 
-  
-
 # Code Sample - ESE-At-A-Glance
 
 ### [Live Site](https://ese-at-a-glance.cyclic.app/) || [Github](https://github.com/Brandon-Schefstad/ESEAtAGlance)
-
-  
 
 ### Summary
 
 Students with disabilities (SWD) receive an Individualized Education Plan at least once a year. This plan is a lengthy legal document detailing important information about a student. When I was a middle school teacher of SWD, communicating this information to other teachers was incredibly time consuming. For each of my 9 students, I had to explain this 20 page document to their 7 teachers. Seeking a better way, I built ESE-at-a-Glance. ESE stands for 'Exceptional Student Education', the umbrella term for the education of SWD. This application is designed for teachers to store and display pertinent datapoints about our students. The database is searchable by student number and presents the results on a dashboard.
 
-  
-
 This code sample includes only the backend code (no views/public folder). The entire source code can be found at the GitHub link above.
-
-  
 
 ## Backend Structure
 
-  
-
 The backend API utilizes MongoDB both for storing the student/user information as well as authentication/session data. It also runs on an express server in NodeJS. It is built following MVC architecture.
-
-  
 
 config/
 
--  `.env` - contains environment variables such as MONGO_URI
+- `.env` - contains environment variables such as MONGO_URI
 
--  `database.js` - module export to connect to the database.
+- `database.js` - module export to connect to the database.
 
--  `passport.js` - passport configuration specifying a LocalStrategy
+- `passport.js` - passport configuration specifying a LocalStrategy
 
 controllers/
--  utils/
 
-	-  `accommodations.js` - A list of all accommodations a school district provides, split into four domains (presentation, response, setting, and scheduling)
+- utils/
 
-	-  `populateStudentObject.js` - The search and edit features of the app require data to send with the API response. This function handles the construction of that data.
+  - `accommodations.js` - A list of all accommodations a school district provides, split into four domains (presentation, response, setting, and scheduling)
 
-	-  `separateAccommodationsIntoDomains.js` - By default student accommodations are stored as an array of strings, this function divides them into the four domains (presentation, response, setting, and scheduling)
+  - `populateStudentObject.js` - The search and edit features of the app require data to send with the API response. This function handles the construction of that data.
 
--  student/
+  - `separateAccommodationsIntoDomains.js` - By default student accommodations are stored as an array of strings, this function divides them into the four domains (presentation, response, setting, and scheduling)
 
-	-  `accommodations.js` - (1) renders a page displaying a student's list of accommodations or (2) accepts a POST request to update a student's accommodations.
+- student/
 
-	-  `addGoals.js` - (1) renders a form to create a new goal for a student or (2) accepts a POST request to submit a new goal.
+  - `accommodations.js` - (1) renders a page displaying a student's list of accommodations or (2) accepts a POST request to update a student's accommodations.
 
-	-  	`addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
+  - `addGoals.js` - (1) renders a form to create a new goal for a student or (2) accepts a POST request to submit a new goal.
 
-	-  `deleteStudent.js` - deletes a student from the database.
+  -     `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
 
-	-  `editStudent.js` - (1) renders a page to edit student information or (2) accepts a POST request to update a student's profile on the database.
+  - `deleteStudent.js` - deletes a student from the database.
 
-	-  `searchStudent.js` - (1) renders a form to retrieve student information or (2) accepts a GET request to display a specific student's information.
+  - `editStudent.js` - (1) renders a page to edit student information or (2) accepts a POST request to update a student's profile on the database.
 
--  `auth.js` - Handles authentication logic including validators
+  - `searchStudent.js` - (1) renders a form to retrieve student information or (2) accepts a GET request to display a specific student's information.
 
--  `dashboard.js` - Renders a teacher's dashboard of students, if the teacher has no students, renders a default page explaining Individualized Education Plans.
+- `auth.js` - Handles authentication logic including validators
 
--  `home.js` - Displays the index page
+- `dashboard.js` - Renders a teacher's dashboard of students, if the teacher has no students, renders a default page explaining Individualized Education Plans.
+
+- `home.js` - Displays the index page
 
 middleware/
 
--  `auth.js` - module export for ensureAuth, used on all routes besides `/`, `/login`, and `/signup`
+- `auth.js` - module export for ensureAuth, used on all routes besides `/`, `/login`, and `/signup`
 
--  `cloudinary.js` - config information for cloudinary to store student images.
+- `cloudinary.js` - config information for cloudinary to store student images.
 
--  `multer.js` - module export to only accept specific file formats for student images
+- `multer.js` - module export to only accept specific file formats for student images
 
 models/
 
--  `Goal.js`
+- `Goal.js`
 
+- `Student.js`
 
--  `Student.js`
-
-
--  `Teacher.js`
+- `Teacher.js`
 
 routes/
 
-  -  student/  
+- student/
 
-      -  `accommodations.js`
+  - `accommodations.js`
 
-      -  `addGoal.js`
+  - `addGoal.js`
 
-      -  `addNewStudent.js`
+  - `addNewStudent.js`
 
-      -  `deleteStudent.js`
+  - `deleteStudent.js`
 
-      -  `editStudent.js`
+  - `editStudent.js`
 
-      -  `searchStudent.js`
+  - `searchStudent.js`
 
-  -  dashboard.js
+- dashboard.js
 
-  -  index.js
+- index.js
 
-  -  mainstudent.js - directs traffic to specific `student/` route
+- mainstudent.js - directs traffic to specific `student/` route
 
 server.js - Starts an express server, connects to the database, establishes configs for passport and express sessions, and implements middleware such as methodOverride.

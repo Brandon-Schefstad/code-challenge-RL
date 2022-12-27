@@ -12,7 +12,7 @@ Please share samples of code you've personally written for one or two completed 
 
 You can either reply to this email with zip file(s) attached or send us GitHub link(s). If you do not have any up to date work, we encourage you to take our coding challenge which can be found attached to this email.
 
-# Code- Challenge:
+# Code - Challenge:
 
 [ API Hosted on Cyclic](https://backend-for-rl.cyclic.app/)
 [Frontend UI on Netlify](https://code-challenge-rl-frontend.netlify.app/)
