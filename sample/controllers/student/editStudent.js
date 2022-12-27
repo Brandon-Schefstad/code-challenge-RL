@@ -1,5 +1,5 @@
 const Student = require('../../models/Student')
-const Goal = require('../../models/Goal.js')
+const Goal = require('../../models/Goals.js')
 const Teacher = require('../../models/Teacher')
 const populateStudentObject = require('../utils/populateStudentObject')
 module.exports = {
@@ -36,11 +36,12 @@ module.exports = {
 					$unset: { history: 1 },
 				}
 			)
+			// Ensures data from frontend is an array
 			const domainList =
 				typeof req.body.domain === 'string'
 					? [req.body.domain]
 					: req.body.domain
-
+			// Uses order of elements in req.body to construct new goals
 			let history = []
 			for (let i = 0; i < domainList.length; i++) {
 				const goalObj = await Goal.create({
