@@ -8,7 +8,7 @@ const SearchUserForm = () => {
 	async function fetchUser(e) {
 		e.preventDefault()
 		console.log(email)
-		axios.get(`/user/${email}`).then((res) => {
+		axios.get(`/api/user/${email}`).then((res) => {
 			setUser(res.data)
 		})
 	}

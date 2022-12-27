@@ -15,7 +15,7 @@
 		"react-scripts": "5.0.1",
 		"tailwindcss": "^3.2.4"
 	},
-	"proxy": "https://backend-for-rl.cyclic.app/",
+	"proxy": "http://localhost:3001",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",

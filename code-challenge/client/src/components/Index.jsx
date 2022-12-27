@@ -1,7 +1,9 @@
+import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Index = () => {
+	axios.get('/').then((res) => console.log(res.data))
 	const authButton = window.localStorage.getItem('_id') ? (
 		<>
 			{' '}

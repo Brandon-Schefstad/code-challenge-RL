@@ -14,7 +14,7 @@ const Dashboard = () => {
 		return <Navigate to="/" replace="true" />
 	}
 	async function getTodo() {
-		await axios.get(`/todo/getTodo/${user}`).then((res) => {
+		await axios.get(`/api/todo/getTodo/${user}`).then((res) => {
 			setTodos(res.data)
 		})
 	}

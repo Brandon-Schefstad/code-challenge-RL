@@ -22,7 +22,7 @@ const EditForm = ({
 				user: window.localStorage.getItem('_id'),
 				_id: todo_id,
 			}
-			await axios.put(`/todo/editTodo/${_id}`, todo).then((res) => {
+			await axios.put(`/api/todo/editTodo/${_id}`, todo).then((res) => {
 				setTodoObject(todo)
 				setEdit(!edit)
 				getTodo()

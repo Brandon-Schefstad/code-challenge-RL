@@ -7,7 +7,7 @@ const SingleTodo = ({}) => {
 	const [singleTodo, setSingleTodo] = useState()
 	let { _id } = useParams()
 	async function getSingleTodo() {
-		await axios.get(`/todo/${_id}`).then((res) => {
+		await axios.get(`/api/todo/${_id}`).then((res) => {
 			setSingleTodo(res.data)
 		})
 	}

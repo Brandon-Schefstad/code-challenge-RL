@@ -5,7 +5,7 @@ import Todo from './Todo'
 const AllTodos = () => {
 	const [allTodos, setAllTodos] = useState(null)
 	async function getAllTodos() {
-		await axios.get(`/todo/getAllTodos`).then((res) => {
+		await axios.get(`/api/todo/getAllTodos`).then((res) => {
 			setAllTodos(res.data)
 			console.log(res.data)
 		})
@@ -17,9 +17,9 @@ const AllTodos = () => {
 		return (
 			<section className="grid grid-cols-2 gap-12 p-8">
 				<h1 className={'col-start-1 text-5xl'}>All Todos!</h1>
-				<button className={'col-start-2 btn w-[24rem] m-auto'}>
-					<Link to="/dashboard">Back</Link>
-				</button>
+				<Link to="/dashboard">
+					<button className={'col-start-2 btn w-[24rem] m-auto'}>Back</button>
+				</Link>
 
 				{allTodos.map((entry) => {
 					return (

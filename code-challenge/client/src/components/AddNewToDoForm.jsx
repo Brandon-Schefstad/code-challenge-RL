@@ -12,14 +12,14 @@ const AddNewToDoForm = ({
 	const [placeholder, setPlaceholder] = useState(usePrompt())
 
 	async function getTodo() {
-		await axios.get(`/todo/getTodo/${user}`).then((res) => {
+		await axios.get(`/api/todo/getTodo/${user}`).then((res) => {
 			setTodos(res.data)
 		})
 	}
 	async function postTodo(e) {
 		e.preventDefault()
 		await axios
-			.post('/todo/postTodo', {
+			.post('/api/todo/postTodo', {
 				todo: document.getElementById('todo').value,
 				finished: checkBox,
 				user: user,

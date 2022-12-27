@@ -18,7 +18,7 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 	console.log(user)
 	console.log(user_id)
 	async function deleteTodo() {
-		await axios.delete(`/todo/deleteTodo/${_id}`).then((res) => {
+		await axios.delete(`/api/todo/deleteTodo/${_id}`).then((res) => {
 			snoozeTodo()
 		})
 	}
