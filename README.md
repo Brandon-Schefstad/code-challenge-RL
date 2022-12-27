@@ -2,7 +2,7 @@
 
 Hello! Within this repo you will find both the completed coding challenge for a to-do api as well as sample code from a full stack application I created.
 
-The To-do API is a full MERN stack application
+The To-do API is a full MERN stack application built using MVC design pattern. 
 
 - API endpoint available at [https://backend-for-rl.cyclic.app/](https://backend-for-rl.cyclic.app/).
   - Also GET route available at [https://backend-for-rl.cyclic.app/api/todo/getAllTodos](https://backend-for-rl.cyclic.app/api/todo/getAllTodos)
@@ -10,7 +10,7 @@ The To-do API is a full MERN stack application
 - Frontend UI available at [https://frontend-for-rl.netlify.app/](https://frontend-for-rl.netlify.app/).
   - Use email `bschefstad-admin@gmail.com` and password `bschefstad-admin@gmail.com` for quick access.
 
-My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB.
+My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB following MVC design pattern. 
 
 - Application available at [https://ese-at-a-glance.cyclic.app/](https://ese-at-a-glance.cyclic.app/)
 
@@ -82,7 +82,7 @@ finished: Boolean
 
 ### 2. & 3. Change a to-do & Delete a to-do (do a soft delete)
 
-If the current logged-in user's \_id (from localStorage) matches the \_id of the to-do's user property, three buttons will be displayed: edit, snooze, and delete. 'Edit' will update the db via PUT request to `/api/todo/editTodo/:\_id`, 'snooze' will remove the to-do from the UI until next page refresh (soft delete), and 'delete' will remove a to-do from the db via DELETE request to `/api/todo/deleteTodo/:\_id`
+If the current logged-in user's \_id (from localStorage) matches the \_id of the to-do's user property, three buttons will be displayed: edit, snooze, and delete. 'Edit' will update the db via PUT request to `/api/todo/editTodo/:_id`, 'snooze' will remove the to-do from the UI until next page refresh (soft delete), and 'delete' will remove a to-do from the db via DELETE request to `/api/todo/deleteTodo/:_id`
 
 ### 4. List all to-dos
 
@@ -152,7 +152,7 @@ controllers/
 
   - `addGoals.js` - (1) renders a form to create a new goal for a student or (2) accepts a POST request to submit a new goal.
 
-  -     `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
+  - `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
 
   - `deleteStudent.js` - deletes a student from the database.
 
