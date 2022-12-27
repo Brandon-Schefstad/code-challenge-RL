@@ -15,7 +15,6 @@ const SingleTodo = ({}) => {
 		getSingleTodo()
 	}, [])
 	if (singleTodo) {
-)
 		return (
 			<section className="p-8">
 				<h1>To Do #{singleTodo._id}</h1>
