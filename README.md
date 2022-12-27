@@ -112,7 +112,7 @@ If the current logged-in user's \_id (from localStorage) matches the \_id of the
 
 ### 5. Return a to-do
 
-- Each to-do card has a permalink to `/api/todo/:_id}`, this shows a page to view a single to-do. A user does not need to own the to-do to visit the permalink (e.g. if they click the link from the page showing all to-dos).
+- Each to-do card has a permalink to `/api/todo/:_id`, this shows a page to view a single to-do. A user does not need to own the to-do to visit the permalink (e.g. if they click the link from the page showing all to-dos).
 
   
 
