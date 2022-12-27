@@ -1,79 +1,85 @@
-# Prompt:
+# Code - Challenge: To Do API
 
-Please share samples of code you've personally written for one or two completed Backend projects. The samples can be from personal, academic, or professional projects. Here are some guidelines to help provide more context on what we're looking for:
+## All Routes:
 
-- Code that is clean and maintainable
+/ Index page GET
 
-- There is some type of design pattern followed (MVVM, etc)
+/api
 
-- Solid understanding of Backend domain knowledge (navigation, state management, etc).
+- /auth
 
-- Code that you wrote. If it is a team project, please include the git history with the repo so we can clearly know what you worked on vs the rest of the team.
+  - /signup - POST
 
-You can either reply to this email with zip file(s) attached or send us GitHub link(s). If you do not have any up to date work, we encourage you to take our coding challenge which can be found attached to this email.
+  - /login - POST
 
-# Code - Challenge:
+- /todo
 
-#### [ API Hosted on Cyclic](https://backend-for-rl.cyclic.app/)
-#### [Frontend UI on Netlify](https://code-challenge-rl-frontend.netlify.app/)
+  - /getAllTodos - GET
 
-### All Routes:
+  - /:\_id - GET
 
-/
-GET Index page
+  - /getTodo/:user - GET
 
-/auth
+  - /postTodo - POST
 
-- POST /signup
-- POST /login
+  - /deleteTodo/:\_id - DELETE
 
-/todo
+  - /editTodo/:\_id - PUT
 
-- GET /getAllTodos/
-- GET /:\_id
-- GET /getTodo/:user
-- POST /postTodo/
-- DELETE /deleteTodo/:\_id
-- PUT /editTodo/:\_id
+- /user
 
-/user
+  - /:email - GET
 
-- GET /:email
+## Requirements
 
-### Requirements
+### 1. Add a to-do
 
-#### 1. Add a to-do
+After logging in, users can submit a form to make a POST request to `/api/todo/postTodo`.
 
-After logging in, users can submit a form to make a POST request to /todo/postTodo.
-`Todo = {
+```JS
+Todo = {
+
 user: ObjectID;
+
 todo: String;
+
 date: Date.now();
+
 finished: Boolean
-}`
 
-#### 2. & 3. Change a to-do & Delete a to-do (do a soft delete)
+}
+```
 
-If the current logged-in user's \_id (from localStorage) matches the \_id of the todo's user property, three buttons will be displayed: edit, snooze, and delete. Edit will update the db via PUT request to /todo/editTodo/:\_id, snooze will remove the todo from the UI until next page refresh, and delete todo from the db via DELETE request to /todo/deleteTodo/:\_id
+### 2. & 3. Change a to-do & Delete a to-do (do a soft delete)
 
-#### 4. List all todos
+If the current logged-in user's \_id (from localStorage) matches the \_id of the to-do's user property, three buttons will be displayed: edit, snooze, and delete. 'Edit' will update the db via PUT request to `/api/todo/editTodo/:_id`, 'snooze' will remove the to-do from the UI until next page refresh (soft delete), and 'delete' will remove a to-do from the db via DELETE request to `/api/todo/deleteTodo/:_id`
 
-- todo/getAllTodos/ Fetches all todos from the database, todos owned by the user will show the edit, snooze, and delete buttons.
+### 4. List all to-dos
 
-#### 5. Return a todo
+- `/api/todo/getAllTodos/` Fetches all todos from the database, to-dos owned by the user will show the edit, snooze, and delete buttons.
 
-- Each todo card has a permalink to /todo/${todoObject.\_id}, this shows a page to view a single todo. A user does not need to own the todo to visit the permalink.
+### 5. Return a to-do
 
-#### 6. login
+- Each to-do card has a permalink to `/api/todo/:_id`, this shows a page to view a single to-do. A user does not need to own the to-do to visit the permalink (e.g. if they click the link from the page showing all to-dos).
+
+### 6. login
 
 - Auth is handled by MongoStore, passport, and bcrypt. On signup, a user document is created:
-- `User = {
+
+```
+User = {
+
 email: String ,
+
 password: String, <- bcrypt
+
 todos: todo[],
-}`
+
+}
+```
+
 - Passport uses local strategy on login, the user's email and \_id are set in localStorage and used client side.
 
-#### 7. return a user
+### 7. return a user
 
-- On the dashboard page, a form accepts an email and returns that user's todos. GET request to user/:email.
+- On the dashboard page, a form accepts an email and returns that user's to-dos. GET request to `user/:email`.
