@@ -16,7 +16,7 @@ const SignUp = () => {
 		e.preventDefault()
 		if (password === confirmPassword) {
 			await axios
-				.post('/signup', {
+				.post('https://backend-for-rl.cyclic.app/signup', {
 					email: email,
 					password: password,
 					confirmPassword: confirmPassword,
