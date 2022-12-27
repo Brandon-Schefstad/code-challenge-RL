@@ -19,10 +19,7 @@ module.exports = async function populateStudentObject(ID) {
 				path: 'caseManager',
 			})
 			.lean()
-		if (!student) {
-			const errorObject = { error: 'No student was found' }
-			return errorObject
-		}
+
 		let history = [[], [], [], [], [], [], [], [], [], [], [], [], []]
 		//TODO:  Array -> Map
 		if (student.history) {
@@ -61,7 +58,10 @@ module.exports = async function populateStudentObject(ID) {
 			IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
 			image: student.image,
 		}
-
+		if (!studentObject) {
+			const errorObject = { error: 'No student was found' }
+			return errorObject
+		}
 		return studentObject
 	} catch (error) {
 		console.error(error)
