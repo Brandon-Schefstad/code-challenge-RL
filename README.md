@@ -2,7 +2,7 @@
 
 Hello! Within this repo you will find both the completed coding challenge for a to-do api as well as sample code from a full stack application I created.
 
-The To-do API is a full MERN stack application
+The To-do API is a full MERN stack application built using MVC design pattern. 
 
 - API endpoint available at [https://backend-for-rl.cyclic.app/](https://backend-for-rl.cyclic.app/).
   - Also GET route available at [https://backend-for-rl.cyclic.app/api/todo/getAllTodos](https://backend-for-rl.cyclic.app/api/todo/getAllTodos)
@@ -10,7 +10,7 @@ The To-do API is a full MERN stack application
 - Frontend UI available at [https://frontend-for-rl.netlify.app/](https://frontend-for-rl.netlify.app/).
   - Use email `bschefstad-admin@gmail.com` and password `bschefstad-admin@gmail.com` for quick access.
 
-My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB.
+My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB following MVC design pattern. 
 
 - Application available at [https://ese-at-a-glance.cyclic.app/](https://ese-at-a-glance.cyclic.app/)
 
