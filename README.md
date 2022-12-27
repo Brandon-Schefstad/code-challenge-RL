@@ -80,7 +80,7 @@ You can either reply to this email with zip file(s) attached or send us GitHub l
 
 ### 1. Add a to-do
 
-After logging in, users can submit a form to make a POST request to /api/todo/postTodo.
+After logging in, users can submit a form to make a POST request to `/api/todo/postTodo`.
 
 ```JS
 Todo = {
