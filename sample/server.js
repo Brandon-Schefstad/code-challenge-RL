@@ -11,6 +11,10 @@ const connectDB = require('./config/database')
 const cookieParser = require('cookie-parser')
 require('dotenv').config({ path: './sample/config/.env' })
 
+const cors = require('cors')
+// CORS
+app.use(cors())
+
 /**Routes */
 const mainRoutes = require('./routes')
 const dashboardRoutes = require('./routes/dashboard.js')
