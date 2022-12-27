@@ -152,7 +152,7 @@ controllers/
 
   - `addGoals.js` - (1) renders a form to create a new goal for a student or (2) accepts a POST request to submit a new goal.
 
-  -     `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
+  - `addNewStudent.js` - (1) renders a form to create a new student or (2) accepts a POST request to submit a new student.
 
   - `deleteStudent.js` - deletes a student from the database.
 
