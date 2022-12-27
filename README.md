@@ -13,6 +13,8 @@ The To-do API is a full MERN stack application built using MVC design pattern.
 My application's called 'ESE-At-A-Glance'. It is built in NodeJS using Express and MongoDB following MVC design pattern. 
 
 - Application available at [https://ese-at-a-glance.cyclic.app/](https://ese-at-a-glance.cyclic.app/)
+  - Use email `bschefstad-admin@gmail.com` and password `bschefstad-admin@gmail.com` for quick access.
+- [Github Link](https://github.com/Brandon-Schefstad/ESEAtAGlance])
 
 ## Prompt:
 
