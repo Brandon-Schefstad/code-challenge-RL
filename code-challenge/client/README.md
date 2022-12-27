@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Prompt:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Please share samples of code you've personally written for one or two completed Backend projects. The samples can be from personal, academic, or professional projects. Here are some guidelines to help provide more context on what we're looking for:
 
-## Available Scripts
+- Code that is clean and maintainable
 
-In the project directory, you can run:
+- There is some type of design pattern followed (MVVM, etc)
 
-### `npm start`
+- Solid understanding of Backend domain knowledge (navigation, state management, etc).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Code that you wrote. If it is a team project, please include the git history with the repo so we can clearly know what you worked on vs the rest of the team.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can either reply to this email with zip file(s) attached or send us GitHub link(s). If you do not have any up to date work, we encourage you to take our coding challenge which can be found attached to this email.
 
-### `npm test`
+# Code- Challenge:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[ API Hosted on Cyclic](https://backend-for-rl.cyclic.app/)
+[Frontend UI on Netlify](https://code-challenge-rl-frontend.netlify.app/)
 
-### `npm run build`
+### All Routes:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+/
+GET Index page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/auth
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- POST /signup
+- POST /login
 
-### `npm run eject`
+/todo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- GET /getAllTodos/
+- GET /:\_id
+- GET /getTodo/:user
+- POST /postTodo/
+- DELETE /deleteTodo/:\_id
+- PUT /editTodo/:\_id
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+/user
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- GET /:email
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Requirements
 
-## Learn More
+#### 1. Add a to-do
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+After logging in, users can submit a form to make a POST request to /todo/postTodo.
+`Todo = {
+user: ObjectID;
+todo: String;
+date: Date.now();
+finished: Boolean
+}`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 2. & 3. Change a to-do & Delete a to-do (do a soft delete)
 
-### Code Splitting
+If the current logged-in user's \_id (from localStorage) matches the \_id of the todo's user property, three buttons will be displayed: edit, snooze, and delete. Edit will update the db via PUT request to /todo/editTodo/:\_id, snooze will remove the todo from the UI until next page refresh, and delete todo from the db via DELETE request to /todo/deleteTodo/:\_id
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 4. List all todos
 
-### Analyzing the Bundle Size
+- todo/getAllTodos/ Fetches all todos from the database, todos owned by the user will show the edit, snooze, and delete buttons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 5. Return a todo
 
-### Making a Progressive Web App
+- Each todo card has a permalink to /todo/${todoObject.\_id}, this shows a page to view a single todo. A user does not need to own the todo to visit the permalink.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### 6. login
 
-### Advanced Configuration
+- Auth is handled by MongoStore, passport, and bcrypt. On signup, a user document is created:
+- `User = {
+email: String ,
+password: String, <- bcrypt
+todos: todo[],
+}`
+- Passport uses local strategy on login, the user's email and \_id are set in localStorage and used client side.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 7. return a user
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- On the dashboard page, a form accepts an email and returns that user's todos. GET request to user/:email.
