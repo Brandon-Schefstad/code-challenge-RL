@@ -32,21 +32,21 @@ const EditForm = ({
 	return (
 		<li
 			key={todo_id}
-			className="card bg-gray-300 text-slate-900 p-4 flex flex-col">
+			className="card bg-gray-200 text-white p-4 flex flex-col ">
 			<form onSubmit={editTodoReq}>
-				<section className="m-auto w-[55%]">
-					<label htmlFor="todo"></label>
-					<input
-						className="p-2 m-auto "
-						type="text"
-						name="todo"
-						id="todoEdit"
-						placeholder={todo}
-					/>
-				</section>
-				<div className="divide bg-red-800 h-[0.25rem] mx-4  my-4 block"></div>
-				<section className="w-[50%] m-auto  grid grid-cols-2">
-					<label htmlFor="finished">Finished?</label>
+				<label htmlFor="todo"></label>
+				<input
+					className="p-2 m-auto w-[75%] block text input input-bordered input-success w-full max-w-xs"
+					type="text"
+					name="todo"
+					id="todoEdit"
+					placeholder={todo}
+				/>
+
+				<section className="mt-4 mb-4 m-auto p-2 py-3 bg-black input input-bordered input-success w-full max-w-xs  grid grid-cols-2 text-center">
+					<label className="" htmlFor="finished">
+						Finished?
+					</label>
 					<input
 						type="checkbox"
 						name="finished"
