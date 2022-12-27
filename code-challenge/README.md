@@ -14,8 +14,8 @@ You can either reply to this email with zip file(s) attached or send us GitHub l
 
 # Code - Challenge:
 
-[ API Hosted on Cyclic](https://backend-for-rl.cyclic.app/)
-[Frontend UI on Netlify](https://code-challenge-rl-frontend.netlify.app/)
+#### [ API Hosted on Cyclic](https://backend-for-rl.cyclic.app/)
+#### [Frontend UI on Netlify](https://code-challenge-rl-frontend.netlify.app/)
 
 ### All Routes:
 
