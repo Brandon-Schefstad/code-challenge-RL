@@ -4,7 +4,7 @@ Hello! Within this repo you will find both the completed coding challenge for a 
 
 The To-do API is a full MERN stack application built using MVC design pattern. 
 
-**_Please note that Cyclic's load times can take up to 20 seconds!_** 
+**_Please note that Cyclic's load times can take up to 20 seconds! I have found first login typically takes the longest, but once the app is up it is significantly more responsive._** 
 
 - API endpoint available at [https://backend-for-rl.cyclic.app/](https://backend-for-rl.cyclic.app/).
   - Also GET route available at [https://backend-for-rl.cyclic.app/api/todo/getAllTodos](https://backend-for-rl.cyclic.app/api/todo/getAllTodos)
