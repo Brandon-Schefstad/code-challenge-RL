@@ -10,7 +10,7 @@ const SearchUserForm = () => {
 	const [email, setEmail] = useState('')
 	async function fetchUser(e) {
 		e.preventDefault()
-		console.log(email)
+
 		axios.get(`/api/user/${email}`).then((res) => {
 			setUser(res.data)
 		})
@@ -22,7 +22,6 @@ const SearchUserForm = () => {
 	let userProfile
 
 	if (user) {
-		console.log(closed)
 		if (closed) {
 			userProfile = <></>
 		} else {

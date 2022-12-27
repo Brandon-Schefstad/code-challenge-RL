@@ -15,8 +15,7 @@ const Todo = ({ todo, finished, _id, getTodo, user }) => {
 
 	const user_id = window.localStorage.getItem('_id')
 	const user_idMatches = user_id === user
-	console.log(user)
-	console.log(user_id)
+
 	async function deleteTodo() {
 		await axios.delete(`/api/todo/deleteTodo/${_id}`).then((res) => {
 			snoozeTodo()

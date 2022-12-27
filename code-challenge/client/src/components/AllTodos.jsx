@@ -7,7 +7,6 @@ const AllTodos = () => {
 	async function getAllTodos() {
 		await axios.get(`/api/todo/getAllTodos`).then((res) => {
 			setAllTodos(res.data)
-			console.log(res.data)
 		})
 	}
 	useEffect(() => {

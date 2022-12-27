@@ -11,7 +11,6 @@ const EditForm = ({
 	setTodoObject,
 	getTodo,
 }) => {
-	console.log(_id)
 	const [checkBox, setCheckBox] = useState(false)
 	async function editTodoReq(e) {
 		e.preventDefault()

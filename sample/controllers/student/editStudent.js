@@ -40,7 +40,7 @@ module.exports = {
 				typeof req.body.domain === 'string'
 					? [req.body.domain]
 					: req.body.domain
-			console.log(domainList)
+
 			let history = []
 			for (let i = 0; i < domainList.length; i++) {
 				const goalObj = await Goal.create({

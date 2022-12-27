@@ -26,7 +26,6 @@ const Dashboard = () => {
 	let todoList
 	if (todos) {
 		todoList = todos.map((entry) => {
-			console.log(entry.user)
 			return (
 				<Todo
 					key={entry._id}

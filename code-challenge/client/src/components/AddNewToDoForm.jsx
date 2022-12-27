@@ -59,7 +59,6 @@ const AddNewToDoForm = ({
 					id="finished"
 					onClick={() => {
 						setCheckBox(!checkBox)
-						console.log(checkBox)
 					}}
 				/>
 			</section>

@@ -12,7 +12,6 @@ const SignUp = () => {
 	const updatePassword = (e) => setPassword(e.target.value)
 	const matchPassword = (e) => setConfirmPassword(e.target.value)
 	async function postSignUp(e) {
-		console.log('sign up')
 		e.preventDefault()
 		if (password === confirmPassword) {
 			await axios
@@ -22,7 +21,6 @@ const SignUp = () => {
 					confirmPassword: confirmPassword,
 				})
 				.then(function (response) {
-					console.log(response)
 					window.localStorage.setItem('User', email)
 					window.localStorage.setItem('_id', response.data._id)
 					navigate('/dashboard')

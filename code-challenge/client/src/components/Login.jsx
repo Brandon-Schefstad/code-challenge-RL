@@ -20,7 +20,6 @@ const Login = () => {
 				password: password,
 			})
 			.then((res) => {
-				console.log(res)
 				window.localStorage.setItem('User', email)
 				window.localStorage.setItem('_id', res.data)
 				navigate('/dashboard')
