@@ -16,8 +16,8 @@ app.use(express.json())
 async function main() {
 	app.use('/api', ensureAuth, router)
 	app.use('/auth', authRouter)
-	app.listen(2122, () => {
-		console.log(`http://localhost:${2122}`)
+	app.listen(2121, () => {
+		console.log(`http://localhost:${2121}`)
 	})
 }
 
