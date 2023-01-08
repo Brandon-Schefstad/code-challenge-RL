@@ -22,7 +22,6 @@ router.post('/login', async (req, res) => {
 	})
 
 	if (user) {
-		console.log(req.body.password === user.password)
 		const isValid = await comparePasswords(req.body.password, user.password)
 		if (!isValid) {
 			res.status(401)
@@ -35,18 +34,11 @@ router.post('/login', async (req, res) => {
 				deleted: false,
 			},
 		})
-		const deletedTodos = await prisma.todo.findMany({
-			where: {
-				userId: user.id,
-				deleted: true,
-			},
-		})
 		const token = createJWT(user)
 		res.json({
 			token: token,
 			todos: todos,
 			userId: user.id,
-			deleted: deletedTodos,
 		})
 	}
 })
