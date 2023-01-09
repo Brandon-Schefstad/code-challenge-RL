@@ -5,13 +5,16 @@ module.exports = {
 		try {
 			const result = await prisma.todo.update({
 				where: {
-					id: parseInt(req.params.id),
+					id: parseInt(req.params.todoId),
 				},
 				data: {
 					deletedAt: Date.now().toString(),
 					deleted: true,
 				},
 			})
+			if (!result) {
+				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+			}
 			res.json({
 				todo: 'updated',
 				confirmation: result,
@@ -21,16 +24,19 @@ module.exports = {
 		}
 	},
 	finishTodo: async (req: Request, res: Response) => {
-		const todo = await prisma.todo.findFirst({
-			where: {
-				id: parseInt(req.params.id),
-			},
-		})
+		try {
+			const todo = await prisma.todo.findFirst({
+				where: {
+					id: parseInt(req.params.todoId),
+				},
+			})
 
-		if (todo) {
+			if (!todo) {
+				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+			}
 			const result = await prisma.todo.update({
 				where: {
-					id: parseInt(req.params.id),
+					id: parseInt(req.params.todoId),
 				},
 				data: {
 					finished: !todo.finished,
@@ -40,19 +46,24 @@ module.exports = {
 				todo: 'updated',
 				confirmation: result,
 			})
+		} catch (error) {
+			res.sendStatus(500)
 		}
 	},
 	updateTodo: async (req: Request, res: Response) => {
-		const todo = await prisma.todo.findFirst({
-			where: {
-				id: parseInt(req.params.id),
-			},
-		})
+		try {
+			const todo = await prisma.todo.findFirst({
+				where: {
+					id: parseInt(req.params.todoId),
+				},
+			})
 
-		if (todo) {
+			if (!todo) {
+				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+			}
 			const result = await prisma.todo.update({
 				where: {
-					id: parseInt(req.params.id),
+					id: parseInt(req.params.todoId),
 				},
 				data: {
 					todo: req.body.todo,
@@ -64,6 +75,8 @@ module.exports = {
 				todo: 'updated',
 				confirmation: result,
 			})
+		} catch (error) {
+			res.sendStatus(500)
 		}
 	},
 }

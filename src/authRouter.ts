@@ -17,11 +17,14 @@ router.post('/signup', async (req, res) => {
 	res.json({ token })
 })
 router.post('/login', async (req, res) => {
-	const user = await prisma.user.findFirst({
-		where: { username: req.body.username },
-	})
+	try {
+		const user = await prisma.user.findFirst({
+			where: { username: req.body.username },
+		})
 
-	if (user) {
+		if (!user) {
+			res.sendStatus(404).json({ error: 'No User Found' })
+		}
 		const isValid = await comparePasswords(req.body.password, user.password)
 		if (!isValid) {
 			res.status(401)
@@ -40,6 +43,8 @@ router.post('/login', async (req, res) => {
 			todos: todos,
 			userId: user.id,
 		})
+	} catch (error) {
+		res.sendStatus(500).json({ error: error })
 	}
 })
 
