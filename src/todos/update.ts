@@ -13,7 +13,7 @@ module.exports = {
 				},
 			})
 			if (!deleteTodo) {
-				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+				res.json({ error: 'No todo matching that ID', status: 404 })
 			}
 			res.json({
 				finished: deleteTodo,
@@ -31,7 +31,7 @@ module.exports = {
 			})
 
 			if (!todo) {
-				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+				res.json({ error: 'No todo matching that ID', status: 404 })
 			}
 			const finishedTodo = await prisma.todo.update({
 				where: {
@@ -57,9 +57,9 @@ module.exports = {
 			})
 
 			if (!todo) {
-				res.sendStatus(404).json({ error: 'No todo matching that ID' })
+				res.json({ error: 'No todo matching that ID', status: 404 })
 			}
-			const result = await prisma.todo.update({
+			const updatedTodo = await prisma.todo.update({
 				where: {
 					id: parseInt(req.params.todoId),
 				},
@@ -69,8 +69,7 @@ module.exports = {
 				},
 			})
 			res.json({
-				todo: 'updated',
-				confirmation: result,
+				updatedTodo: updatedTodo,
 			})
 		} catch (error) {
 			res.sendStatus(500)

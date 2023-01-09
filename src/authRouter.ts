@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
 		})
 
 		if (!user) {
-			res.sendStatus(404).json({ error: 'No User Found' })
+			res.json({ error: 'No User Found', status: 404 })
 		}
 		const isValid = await comparePasswords(req.body.password, user.password)
 		if (!isValid) {
@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
 			userId: user.id,
 		})
 	} catch (error) {
-		res.sendStatus(500).json({ error: error })
+		res.json({ error: error, status: 500 })
 	}
 })
 

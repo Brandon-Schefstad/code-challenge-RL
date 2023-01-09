@@ -9,6 +9,7 @@ const router = Router()
 
 router.post('/postTodo', createController.postTodo)
 
+router.get('/todos/:todoId', readController.getOneTodo)
 router.get('/todos', readController.getAllTodos)
 router.get('/user/:userId', readController.getAllTodosByUser)
 router.get('/userCompleted/:userId', readController.getAllCompletedTodosByUser)
