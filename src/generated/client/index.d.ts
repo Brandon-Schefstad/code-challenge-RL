@@ -32,10 +32,9 @@ export type Todo = {
   createdAt: Date
   todo: string
   finished: boolean
-  userId: number | null
+  userId: number
   deleted: boolean
   deletedAt: string | null
-  updatedAt: string | null
 }
 
 
@@ -1916,7 +1915,6 @@ export namespace Prisma {
     userId: number | null
     deleted: boolean | null
     deletedAt: string | null
-    updatedAt: string | null
   }
 
   export type TodoMaxAggregateOutputType = {
@@ -1927,7 +1925,6 @@ export namespace Prisma {
     userId: number | null
     deleted: boolean | null
     deletedAt: string | null
-    updatedAt: string | null
   }
 
   export type TodoCountAggregateOutputType = {
@@ -1938,7 +1935,6 @@ export namespace Prisma {
     userId: number
     deleted: number
     deletedAt: number
-    updatedAt: number
     _all: number
   }
 
@@ -1961,7 +1957,6 @@ export namespace Prisma {
     userId?: true
     deleted?: true
     deletedAt?: true
-    updatedAt?: true
   }
 
   export type TodoMaxAggregateInputType = {
@@ -1972,7 +1967,6 @@ export namespace Prisma {
     userId?: true
     deleted?: true
     deletedAt?: true
-    updatedAt?: true
   }
 
   export type TodoCountAggregateInputType = {
@@ -1983,7 +1977,6 @@ export namespace Prisma {
     userId?: true
     deleted?: true
     deletedAt?: true
-    updatedAt?: true
     _all?: true
   }
 
@@ -2084,10 +2077,9 @@ export namespace Prisma {
     createdAt: Date
     todo: string
     finished: boolean
-    userId: number | null
+    userId: number
     deleted: boolean
     deletedAt: string | null
-    updatedAt: string | null
     _count: TodoCountAggregateOutputType | null
     _avg: TodoAvgAggregateOutputType | null
     _sum: TodoSumAggregateOutputType | null
@@ -2118,7 +2110,6 @@ export namespace Prisma {
     user?: boolean | UserArgs
     deleted?: boolean
     deletedAt?: boolean
-    updatedAt?: boolean
   }
 
 
@@ -2928,8 +2919,7 @@ export namespace Prisma {
     finished: 'finished',
     userId: 'userId',
     deleted: 'deleted',
-    deletedAt: 'deletedAt',
-    updatedAt: 'updatedAt'
+    deletedAt: 'deletedAt'
   };
 
   export type TodoScalarFieldEnum = (typeof TodoScalarFieldEnum)[keyof typeof TodoScalarFieldEnum]
@@ -2978,6 +2968,7 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = {
     id?: number
+    username?: string
   }
 
   export type UserOrderByWithAggregationInput = {
@@ -3010,11 +3001,10 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     todo?: StringFilter | string
     finished?: BoolFilter | boolean
-    userId?: IntNullableFilter | number | null
+    userId?: IntFilter | number
     user?: XOR<UserRelationFilter, UserWhereInput> | null
     deleted?: BoolFilter | boolean
     deletedAt?: StringNullableFilter | string | null
-    updatedAt?: StringNullableFilter | string | null
   }
 
   export type TodoOrderByWithRelationInput = {
@@ -3026,7 +3016,6 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
     deleted?: SortOrder
     deletedAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type TodoWhereUniqueInput = {
@@ -3041,7 +3030,6 @@ export namespace Prisma {
     userId?: SortOrder
     deleted?: SortOrder
     deletedAt?: SortOrder
-    updatedAt?: SortOrder
     _count?: TodoCountOrderByAggregateInput
     _avg?: TodoAvgOrderByAggregateInput
     _max?: TodoMaxOrderByAggregateInput
@@ -3057,10 +3045,9 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     todo?: StringWithAggregatesFilter | string
     finished?: BoolWithAggregatesFilter | boolean
-    userId?: IntNullableWithAggregatesFilter | number | null
+    userId?: IntWithAggregatesFilter | number
     deleted?: BoolWithAggregatesFilter | boolean
     deletedAt?: StringNullableWithAggregatesFilter | string | null
-    updatedAt?: StringNullableWithAggregatesFilter | string | null
   }
 
   export type UserCreateInput = {
@@ -3113,7 +3100,6 @@ export namespace Prisma {
     user?: UserCreateNestedOneWithoutTodosInput
     deleted?: boolean
     deletedAt?: string | null
-    updatedAt?: string | null
   }
 
   export type TodoUncheckedCreateInput = {
@@ -3121,10 +3107,9 @@ export namespace Prisma {
     createdAt?: Date | string
     todo: string
     finished: boolean
-    userId?: number | null
+    userId: number
     deleted?: boolean
     deletedAt?: string | null
-    updatedAt?: string | null
   }
 
   export type TodoUpdateInput = {
@@ -3134,7 +3119,6 @@ export namespace Prisma {
     user?: UserUpdateOneWithoutTodosNestedInput
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TodoUncheckedUpdateInput = {
@@ -3142,10 +3126,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todo?: StringFieldUpdateOperationsInput | string
     finished?: BoolFieldUpdateOperationsInput | boolean
-    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    userId?: IntFieldUpdateOperationsInput | number
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TodoUpdateManyMutationInput = {
@@ -3154,7 +3137,6 @@ export namespace Prisma {
     finished?: BoolFieldUpdateOperationsInput | boolean
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TodoUncheckedUpdateManyInput = {
@@ -3162,10 +3144,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todo?: StringFieldUpdateOperationsInput | string
     finished?: BoolFieldUpdateOperationsInput | boolean
-    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    userId?: IntFieldUpdateOperationsInput | number
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter = {
@@ -3281,17 +3262,6 @@ export namespace Prisma {
     not?: NestedBoolFilter | boolean
   }
 
-  export type IntNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableFilter | number | null
-  }
-
   export type UserRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
@@ -3319,7 +3289,6 @@ export namespace Prisma {
     userId?: SortOrder
     deleted?: SortOrder
     deletedAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type TodoAvgOrderByAggregateInput = {
@@ -3335,7 +3304,6 @@ export namespace Prisma {
     userId?: SortOrder
     deleted?: SortOrder
     deletedAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type TodoMinOrderByAggregateInput = {
@@ -3346,7 +3314,6 @@ export namespace Prisma {
     userId?: SortOrder
     deleted?: SortOrder
     deletedAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type TodoSumOrderByAggregateInput = {
@@ -3374,22 +3341,6 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedBoolFilter
     _max?: NestedBoolFilter
-  }
-
-  export type IntNullableWithAggregatesFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableWithAggregatesFilter | number | null
-    _count?: NestedIntNullableFilter
-    _avg?: NestedFloatNullableFilter
-    _sum?: NestedIntNullableFilter
-    _min?: NestedIntNullableFilter
-    _max?: NestedIntNullableFilter
   }
 
   export type StringNullableWithAggregatesFilter = {
@@ -3487,14 +3438,6 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type NestedIntFilter = {
     equals?: number
     in?: Enumerable<number>
@@ -3580,17 +3523,6 @@ export namespace Prisma {
     not?: NestedBoolFilter | boolean
   }
 
-  export type NestedIntNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableFilter | number | null
-  }
-
   export type NestedStringNullableFilter = {
     equals?: string | null
     in?: Enumerable<string> | null
@@ -3627,33 +3559,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter
   }
 
-  export type NestedIntNullableWithAggregatesFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableWithAggregatesFilter | number | null
-    _count?: NestedIntNullableFilter
-    _avg?: NestedFloatNullableFilter
-    _sum?: NestedIntNullableFilter
-    _min?: NestedIntNullableFilter
-    _max?: NestedIntNullableFilter
-  }
-
-  export type NestedFloatNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedFloatNullableFilter | number | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter = {
     equals?: string | null
     in?: Enumerable<string> | null
@@ -3671,13 +3576,23 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter
   }
 
+  export type NestedIntNullableFilter = {
+    equals?: number | null
+    in?: Enumerable<number> | null
+    notIn?: Enumerable<number> | null
+    lt?: number
+    lte?: number
+    gt?: number
+    gte?: number
+    not?: NestedIntNullableFilter | number | null
+  }
+
   export type TodoCreateWithoutUserInput = {
     createdAt?: Date | string
     todo: string
     finished: boolean
     deleted?: boolean
     deletedAt?: string | null
-    updatedAt?: string | null
   }
 
   export type TodoUncheckedCreateWithoutUserInput = {
@@ -3687,7 +3602,6 @@ export namespace Prisma {
     finished: boolean
     deleted?: boolean
     deletedAt?: string | null
-    updatedAt?: string | null
   }
 
   export type TodoCreateOrConnectWithoutUserInput = {
@@ -3719,10 +3633,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     todo?: StringFilter | string
     finished?: BoolFilter | boolean
-    userId?: IntNullableFilter | number | null
+    userId?: IntFilter | number
     deleted?: BoolFilter | boolean
     deletedAt?: StringNullableFilter | string | null
-    updatedAt?: StringNullableFilter | string | null
   }
 
   export type UserCreateWithoutTodosInput = {
@@ -3767,7 +3680,6 @@ export namespace Prisma {
     finished?: BoolFieldUpdateOperationsInput | boolean
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TodoUncheckedUpdateWithoutUserInput = {
@@ -3777,7 +3689,6 @@ export namespace Prisma {
     finished?: BoolFieldUpdateOperationsInput | boolean
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TodoUncheckedUpdateManyWithoutTodosInput = {
@@ -3787,7 +3698,6 @@ export namespace Prisma {
     finished?: BoolFieldUpdateOperationsInput | boolean
     deleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

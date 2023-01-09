@@ -14,7 +14,7 @@ model User {
   id Int @id @default(autoincrement())
   email String 
   password String 
-  username String
+  username String @unique
   todos Todo[] 
 }
 
@@ -23,9 +23,8 @@ model Todo {
   createdAt DateTime @default(now())
   todo String
   finished Boolean
-  userId Int?
+  userId Int
   user User? @relation(fields: [userId], references: [id])
   deleted Boolean @default(false)
   deletedAt String?
-  updatedAt String?
 }

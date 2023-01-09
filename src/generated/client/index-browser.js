@@ -101,8 +101,7 @@ exports.Prisma.TodoScalarFieldEnum = makeEnum({
   finished: 'finished',
   userId: 'userId',
   deleted: 'deleted',
-  deletedAt: 'deletedAt',
-  updatedAt: 'updatedAt'
+  deletedAt: 'deletedAt'
 });
 
 exports.Prisma.TransactionIsolationLevel = makeStrictEnum({

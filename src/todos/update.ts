@@ -3,7 +3,7 @@ import { prisma } from '../db'
 module.exports = {
 	softDelete: async (req: Request, res: Response) => {
 		try {
-			const result = await prisma.todo.update({
+			const deleteTodo = await prisma.todo.update({
 				where: {
 					id: parseInt(req.params.todoId),
 				},
@@ -12,12 +12,11 @@ module.exports = {
 					deleted: true,
 				},
 			})
-			if (!result) {
+			if (!deleteTodo) {
 				res.sendStatus(404).json({ error: 'No todo matching that ID' })
 			}
 			res.json({
-				todo: 'updated',
-				confirmation: result,
+				finished: deleteTodo,
 			})
 		} catch (err) {
 			res.sendStatus(500)
@@ -34,7 +33,7 @@ module.exports = {
 			if (!todo) {
 				res.sendStatus(404).json({ error: 'No todo matching that ID' })
 			}
-			const result = await prisma.todo.update({
+			const finishedTodo = await prisma.todo.update({
 				where: {
 					id: parseInt(req.params.todoId),
 				},
@@ -43,8 +42,7 @@ module.exports = {
 				},
 			})
 			res.json({
-				todo: 'updated',
-				confirmation: result,
+				finished: finishedTodo,
 			})
 		} catch (error) {
 			res.sendStatus(500)
@@ -68,7 +66,6 @@ module.exports = {
 				data: {
 					todo: req.body.todo,
 					finished: req.body.finished,
-					deletedAt: Date.now().toString(),
 				},
 			})
 			res.json({
