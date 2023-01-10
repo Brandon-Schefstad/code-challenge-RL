@@ -15,7 +15,7 @@ module.exports = {
 						},
 					},
 					data: {
-						deletedAt: Date.now().toString(),
+						deletedAt: Date().split(' (')[0],
 						deleted: true,
 					},
 				})
