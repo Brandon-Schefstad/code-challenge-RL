@@ -1,7 +1,7 @@
 import authRouter from './authRouter'
 import { prisma } from './db'
 // @ts-ignore
-import { ensureAuth } from './middleware/auth.js'
+import { ensureAuth } from '../middleware/auth.js'
 import router from './router'
 
 const cors = require('cors')

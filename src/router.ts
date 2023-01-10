@@ -3,22 +3,26 @@ import { Router } from 'express'
 const createController = require('./todos/create')
 const readController = require('./todos/read')
 const updateController = require('./todos/update')
-const deleteController = require('./todos/delete')
 
 const router = Router()
-
+// POST
+// Add New Todo
 router.post('/postTodo', createController.postTodo)
 
+// GET
+// Find a single Todo
 router.get('/todos/:todoId', readController.getOneTodo)
+// Find all Todos
 router.get('/todos', readController.getAllTodos)
-router.get('/user/:userId', readController.getAllTodosByUser)
-router.get('/userCompleted/:userId', readController.getAllCompletedTodosByUser)
+// Find a user's profile
+router.get('/user/:userId', readController.getUser)
 
+// PUT
+// Mark a Todo as finished
 router.put('/finishTodo/:todoId', updateController.finishTodo)
+// Soft Delete Todo
 router.put('/deleteTodo/:todoId', updateController.softDelete)
+// Update a Todo
 router.put('/updateTodo/:todoId', updateController.updateTodo)
-
-router.delete('/deleteUser/:userId', deleteController.deleteAllTodosByUser)
-router.delete('/deleteTodo/:todoId', deleteController.hardDelete)
 
 export default router

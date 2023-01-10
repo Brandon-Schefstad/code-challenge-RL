@@ -10,11 +10,11 @@ module.exports = {
 				},
 			})
 			if (!listOfAllTodos) {
-				res.json({ error: 'No todos found', status: 404 })
+				res.status(404).json({ error: 'No todo matching that ID' })
 			}
 			res.json(listOfAllTodos)
 		} catch (error) {
-			res.json({ error: error, status: 500 })
+			res.sendStatus(500)
 		}
 	},
 	getOneTodo: async (req: Request, res: Response) => {
@@ -25,42 +25,31 @@ module.exports = {
 				},
 			})
 			if (!todo) {
-				res.json({ error: 'No todo found', status: 404 })
+				res.status(404).json({ error: 'No todo matching that ID' })
+			} else {
+				console.log(req.user?.id === todo.userId)
+				res.json(todo)
 			}
-			res.json(todo)
 		} catch (error) {
-			res.send(500).json({ error: error })
+			res.sendStatus(500)
 		}
 	},
-	getAllTodosByUser: async (req: Request, res: Response) => {
+	getUser: async (req: Request, res: Response) => {
 		try {
-			const listOfTodosByUser = await prisma.todo.findMany({
+			const userProfile = await prisma.user.findUnique({
 				where: {
-					userId: parseInt(req.params.userId),
+					id: parseInt(req.params.userId),
+				},
+				include: {
+					todos: true,
 				},
 			})
-			if (!listOfTodosByUser) {
-				res.json({ error: 'No todos for that user', status: 404 })
+			if (!userProfile) {
+				res.status(404).json({ error: 'No todo matching that ID' })
 			}
-			res.json(listOfTodosByUser)
+			res.json(userProfile)
 		} catch (error) {
-			res.json({ error: error, status: 500 })
-		}
-	},
-	getAllCompletedTodosByUser: async (req: Request, res: Response) => {
-		try {
-			const listOfCompletedTodos = await prisma.todo.findMany({
-				where: {
-					userId: parseInt(req.params.userId),
-					finished: true,
-				},
-			})
-			if (!listOfCompletedTodos) {
-				res.json({ error: 'No completed todos for that user', status: 404 })
-			}
-			res.json(listOfCompletedTodos)
-		} catch (error) {
-			res.json({ error: error, status: 500 })
+			res.sendStatus(500)
 		}
 	},
 }

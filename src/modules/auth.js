@@ -16,4 +16,16 @@ module.exports = {
 	hashPassword: (password) => {
 		return bcrypt.hash(password, 5)
 	},
+
+	matchUserId: async (userId, todoId, res) => {
+		const todo = await prisma.todo.findFirst({
+			where: {
+				id: parseInt(todoId),
+			},
+		})
+		if (!todo) {
+			res.json({ error: 'No todo matching that ID', status: 404 })
+		}
+		return todo.id === userId ? true : false
+	},
 }

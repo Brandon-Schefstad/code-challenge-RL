@@ -5,10 +5,8 @@
 	"main": "src/server.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "ts-node ./src/server.ts",
-		"start": "nodemon -e ts -w ./src -x npm run watch:serve",
-		"watch": "nodemon -e ts -w ./src -x npm run watch:serve",
-		"watch:serve": "ts-node src/server.ts"
+		"watch": "tsc -w ",
+		"dev": "nodemon ./src/dist/server.js"
 	},
 	"keywords": [],
 	"author": "",
