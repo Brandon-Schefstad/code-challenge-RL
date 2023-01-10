@@ -40,8 +40,9 @@ module.exports = {
 				where: {
 					id: parseInt(req.params.userId),
 				},
-				include: {
+				select: {
 					todos: true,
+					username: true,
 				},
 			})
 			if (!userProfile) {
