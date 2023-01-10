@@ -7,7 +7,8 @@
 
 
 
-### .env
+## .env Values
 
-DATABASE_URL={Your Link}
-JWT_SECRET={Your Secret}
+DATABASE_URL={Your Link} 
+
+  JWT_SECRET={Your Secret}
